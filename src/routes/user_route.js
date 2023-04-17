@@ -3,6 +3,7 @@ const router = express.Router();
 const bodyParser = require('body-parser');
 const { handleCreatePatient } = require('./patient_routes/patient_create');
 const { handleUpdatePatient } = require('./patient_routes/patient_update');
+const { handleDeletePatient } = require('./patient_routes/patient_delete' );
 // const myMiddleware = require('../../controllers/user-controller');
 const patientCreateRouter = require('./patient_routes/patient_create');
 
@@ -34,9 +35,10 @@ router.put('/pacientes/:id', async (req, res)=>{
     }
 })
 
-router.put('/pacientes/:id', async(req, res)=>{
+router.delete('/pacientes/:id', async(req, res)=>{
     try {
         const deletePatient = await handleDeletePatient(req,res);
+        console.log(deletePatient);
     } catch (error) {
         console.error(error);
     }

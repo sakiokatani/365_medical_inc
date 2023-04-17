@@ -10,22 +10,32 @@ router.use(bodyParser.json());
 
 async function handleDeletePatient(req, res){
     try{
-        const findPatientById = Patient.findByPk(req.params.id);
+        console.log("Entrei no try");
+        const findPatientById = await Patient.findByPk(req.params.id) ;
+        // console.log(findPatientById);
+
         if(findPatientById !== null){
-        await Patient.destroy(
-            {
-                where:{
-                    id: req.params.id
+            await Patient.destroy(
+                {
+                    where:{
+                        id: req.params.id
+                    }
                 }
-            }
-        )
-        res.status(204);
-        }else{
-            res.status(404).json({mensagem: 'Cadastro não encontrado'})
+                )
+                res.status(204).json({message:'Patient deleted successfully'});
+
+                //PRGUNTA PRA CORREÇÃO: PQ NÃO FUNCIONA SEM O JSON COM RES.STATUS(204) - NÃO RETORNA RESPOSTA,
+                // MAS FUNCIONA 204 COM JSON E 2000 COM JSON NORMALMENTE
+        } else{
+            console.log("trouxa tem esse cadastro não");
+            res.status(404).json({mensagem: "Cadastro não encontrado"});
+
         }
         
     }catch(error){
         console.error(error);
         res.status(500);
     }
-})
+}
+
+module.exports = {handleDeletePatient};

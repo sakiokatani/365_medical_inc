@@ -30,7 +30,10 @@ async function handleCreatePatient(req, res) {
 
     const filterPatientsByCpf = await Patient.findOne(
         {
-            where: {cpf: patientData.cpf}
+            where:
+             {
+                cpf: patientData.cpf
+            }
         }
     )
 
@@ -49,7 +52,7 @@ async function handleCreatePatient(req, res) {
     res.status(500).json({mensagem:'Object creation unsuccessful'});
  }
 }
-console.log(handleCreatePatient);
+// console.log(handleCreatePatient);
 // module.exports = router;
 
-module.exports = {handleCreatePatient};
+module.exports = { handleCreatePatient };
