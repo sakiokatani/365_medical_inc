@@ -6,7 +6,8 @@ const { handleUpdatePatient } = require('./patient_routes/patient_update');
 const { handleDeletePatient } = require('./patient_routes/patient_delete' );
 // const myMiddleware = require('../../controllers/user-controller');
 const patientCreateRouter = require('./patient_routes/patient_create');
-
+const { handlePatientStatus } = require('./patient_routes/patient_statusUpdate');
+const { handlePatientDataById } = require('./patient_routes/patient_list');
 
 router.use(bodyParser.json());
 
@@ -44,5 +45,27 @@ router.delete('/pacientes/:id', async(req, res)=>{
     }
 })
 
+router.put('/pacientes/:id/status', async(req, res)=>{
+    try {
+        const updatePatientServiceStatus = await handlePatientStatus(req, res);
+        console.log(updatePatientServiceStatus);
+    } catch (error) {
+        console.error(error);
+    }
+});
+
+router.get('/pacientes/:id', async(req,res) => {
+    try {
+        const getPatientDataById = await handlePatientDataById(req, res);
+        
+    } catch (error) {
+        console.error(error);
+    }
+  })
   // Export router
   module.exports = router;
+
+
+
+
+

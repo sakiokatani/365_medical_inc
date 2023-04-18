@@ -12,7 +12,7 @@ async function handleUpdatePatient(req, res){
         const patientInDatabase = await Patient.findByPk(req.params.id);
         
         if(!patientInDatabase){
-            return res.status(404).json({message: 'Cadastro não encontrado'})
+            return res.status(400).json({message: 'Dados inválidos. Verifique o Id do paciente e tente novamente.'})
         };
         
             patientInDatabase.name= req.body.name;
@@ -24,11 +24,10 @@ async function handleUpdatePatient(req, res){
             patientInDatabase.alllergyList= req.body.alllergyList;
             patientInDatabase.specialCareList= req.body.specialCareList;
             patientInDatabase.healthInsurance= req.body.healthInsurance;
-            patientInDatabase.serviceStatus= req.body.serviceStatus;
-        
-        
+            
         await patientInDatabase.save();
-        res.json(patientInDatabase);
+        
+        res.status(200).json(patientInDatabase);
         
         }catch(error){
         res.status(404).json({mensagem:'Cadastro não encontrado. Verifique os dados e tente novamente.'});

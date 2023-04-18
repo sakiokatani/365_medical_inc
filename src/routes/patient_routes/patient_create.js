@@ -40,8 +40,8 @@ async function handleCreatePatient(req, res) {
     if(filterPatientsByCpf === null){
         const newPatient = await Patient.create(patientData);
         console.log(newPatient);
-        return res.status(201).json({mensagem: `Cadastro criado com Sucesso para o paciente:\n${patientData.name},\nIdentificador: ${patientData.id},`})
-        ///\natendimentos${}
+        return res.status(201).json(newPatient);
+        //atendimentos${}
     }else{
         return res.status(409).json({mensagem:'Conflito na criação de cadastro: CPF já existente no banco de dados.'})
     }

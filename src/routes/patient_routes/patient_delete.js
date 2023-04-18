@@ -10,7 +10,7 @@ router.use(bodyParser.json());
 
 async function handleDeletePatient(req, res){
     try{
-        console.log("Entrei no try");
+        // console.log("Entrei no try");
         const findPatientById = await Patient.findByPk(req.params.id) ;
         // console.log(findPatientById);
 

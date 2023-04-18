@@ -17,8 +17,10 @@ const Doctor = connectSequelize.define('doctor',{
     },
 
     gender:{
-        type: Sequelize.STRING,
-        allowNull: true
+        type: Sequelize.ENUM(
+            'MASCULINO', 'FEMININO', 'NÃO-BINÁRIO', 'OUTROS' 
+        ),
+        allowNull: false 
     },
 
     dateOfBirth:{

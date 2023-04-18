@@ -58,7 +58,7 @@ const Patient = connectSequelize.define('patient',{
     
     serviceStatus:{
         type: Sequelize.ENUM(
-            'AGURDANDO ATENDIMENTO', 'EM ATENDIMENTO', 'ATENDIDO', 'NÃO ATENDIDO'
+            'AGUARDANDO ATENDIMENTO', 'EM ATENDIMENTO', 'ATENDIDO', 'NÃO ATENDIDO'
         ),
         allowNull: false
     },
