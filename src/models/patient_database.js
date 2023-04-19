@@ -16,7 +16,7 @@ const Patient = connectSequelize.define('patient',{
 
     gender:{
         type: Sequelize.ENUM(
-            'MASCULINO', 'FEMININO', 'NÃO-BINÁRIO', 'OUTROS' 
+            'MASCULINO', 'FEMININO', 'NAO_BINARIO', 'OUTROS' 
         ),
         allowNull: false 
     },
@@ -28,7 +28,8 @@ const Patient = connectSequelize.define('patient',{
 
     cpf:{
         type: Sequelize.STRING,
-        allowNull: false 
+        allowNull: false,
+        isUnique: true
     },
     
     phoneNumber:{
@@ -58,7 +59,7 @@ const Patient = connectSequelize.define('patient',{
     
     serviceStatus:{
         type: Sequelize.ENUM(
-            'AGUARDANDO_ATENDIMENTO', 'EM_ATENDIMENTO', 'ATENDIDO', 'NÃO_ATENDIDO'
+            'AGUARDANDO_ATENDIMENTO', 'EM_ATENDIMENTO', 'ATENDIDO', 'NAO_ATENDIDO'
         ),
         allowNull: false
     },

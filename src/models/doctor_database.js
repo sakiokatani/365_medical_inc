@@ -43,7 +43,7 @@ const Doctor = connectSequelize.define('doctor',{
         allowNull: false 
     },
 
-    CRM/UF:{
+    crmuf:{
         type: Sequelize.STRING,
         allowNull: true,
         isUnique: true
@@ -80,7 +80,7 @@ const Doctor = connectSequelize.define('doctor',{
     //  
     // },
     //método: perguntar qual médico e qual paciente foir feito o atendimento, ter identificador do paciente
-    
+
 
 
     

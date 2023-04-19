@@ -36,11 +36,44 @@ async function handleCreatePatient(req, res) {
             }
         }
     )
+    
+    const allowedServiceStatuses = [
+        'AGUARDANDO_ATENDIMENTO',
+        'EM_ATENDIMENTO',
+        'ATENDIDO',
+        'NAO_ATENDIDO'
+      ];
+
+      const allowedGender = [
+        'FEMININO',
+        'MASCULINO',
+        'NAO_BINARIO',
+        'OUTROS'
+      ];
+
+
 
     if(filterPatientsByCpf === null){
+        const newServiceStatus = req.body.serviceStatus;
+        const newGender = req.body.gender;
+        if (!allowedServiceStatuses.includes(newServiceStatus)) {
+            return res.status(400).json({
+              message: `Favor escolher um status válido: ${allowedServiceStatuses}.`
+            });
+        }
+
+        if (!allowedGender.includes(newGender)) {
+            return res.status(400).json({
+              message: `Favor escolher um gênero válido: ${allowedGender}.`
+            });
+        }
+        
         const newPatient = await Patient.create(patientData);
+        
+      
         console.log(newPatient);
         return res.status(201).json(newPatient);
+        
         //atendimentos${}
     }else{
         return res.status(409).json({mensagem:'Conflito na criação de cadastro: CPF já existente no banco de dados.'})
@@ -49,7 +82,7 @@ async function handleCreatePatient(req, res) {
 
  } catch (error) {
     console.error(error);
-    res.status(500).json({mensagem:'Object creation unsuccessful'});
+    res.status(500).json({mensagem:'Patient creation unsuccessful'});
  }
 }
 // console.log(handleCreatePatient);

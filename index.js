@@ -7,7 +7,7 @@ const connectSequelize = require ('./src/database');
     // connectSequelize.authenticate():
     connectSequelize.sync({alter:true});
 const Patient = require('./src/models/patient_database');
-const router = require('./src/routes/user_route');
+const router = require('./src/routes/patient_router');
 const myMiddleware = require('./controllers/user-controller')
 
 

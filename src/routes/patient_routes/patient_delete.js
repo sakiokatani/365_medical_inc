@@ -22,13 +22,12 @@ async function handleDeletePatient(req, res){
                     }
                 }
                 )
-                res.status(204).json({message:'Patient deleted successfully'});
+                return res.status(204).json({message:'Patient deleted successfully'});
 
                 //PRGUNTA PRA CORREÇÃO: PQ NÃO FUNCIONA SEM O JSON COM RES.STATUS(204) - NÃO RETORNA RESPOSTA,
                 // MAS FUNCIONA 204 COM JSON E 2000 COM JSON NORMALMENTE
         } else{
-            console.log("trouxa tem esse cadastro não");
-            res.status(404).json({mensagem: "Cadastro não encontrado"});
+            return res.status(404).json({mensagem: "Cadastro não encontrado"});
 
         }
         
