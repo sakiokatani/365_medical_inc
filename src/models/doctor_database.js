@@ -38,46 +38,49 @@ const Doctor = connectSequelize.define('doctor',{
         allowNull: false 
     },
 
-    emergencyContact:{
+    academicInstitution:{
         type: Sequelize.STRING,
         allowNull: false 
     },
 
-    alllergyList:{
+    CRM/UF:{
         type: Sequelize.STRING,
-        allowNull: true 
+        allowNull: true,
+        isUnique: true
     },
 
-    specialCareList:{
-        type: Sequelize.STRING,
-        allowNull: true
-    },
-
-    healthInsurance:{
-        type: Sequelize.STRING,
-        allowNull: true
-    },
-    
-    serviceStatus:{
+    specialization:{
         type: Sequelize.ENUM(
-            'AGURDANDO ATENDIMENTO', 'EM ATENDIMENTO', 'ATENDIDO', 'NÃO ATENDIDO'
+            'CLINICO_GERAL', 
+            'ANESTESISTA', 
+            'DERMATOLOGIA',
+            'GINECOLOGIA', 
+            'NEUROLOGIA', 
+            'PEDIATRIA', 
+            'PSIQUIATRIA', 
+            'ORTOPEDIA'
         ),
         allowNull: false
     },
-    
-    // classMethod: {
-    //     associate: function(models){
-    //         Doctor.hasMany(models.Doctor,{
-    //             foreignKey: 'location'
-    //         })
-    //     }
+
+    sistemStatus:{
+        type: Sequelize.ENUM(
+            'ATIVO',
+            'INATIVO'
+        ),
+        allowNull: true
+    },
     
     // //Depois verificar como fazer esse autoincrement com o dado de outro banco ou função, ou será que é do numero de atendimentos daquele paciente específico?
     // TotalOfTreatedPatients:{
     //     type: Sequelize.INTEGER,
-    //     autoIncrement: true,
-    //     allowNull: true
+    // for (let counter =0; atendimento === true; counter ++){
+    // 
+    // }
+    //  
     // },
+    //método: perguntar qual médico e qual paciente foir feito o atendimento, ter identificador do paciente
+    
 
 
     
