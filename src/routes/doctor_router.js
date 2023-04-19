@@ -3,7 +3,7 @@ const doctorRouter = express.Router();
 const bodyParser = require('body-parser');
 const { handleCreateDoctor } = require('./doctor_routes/doctor_create');
 const { handleUpdateDoctor } = require('./doctor_routes/doctor_update');
-// const { handleDeleteDoctor } = require('./doctor_routes/doctor_delete' );
+const { handleDeleteDoctor } = require('./doctor_routes/doctor_delete' );
 // const myMiddleware = require('../../controllers/user-controller');
 
 // const { handleDoctorStatus } = require('./doctor_routes/doctor_statusUpdate');
@@ -22,7 +22,7 @@ doctorRouter.post('/medicos', handleCreateDoctor);
   
 doctorRouter.put('/medicos/:id', handleUpdateDoctor)
 
-// DoctorRouter.delete('/medicos/:id', handleDeleteDoctor)
+doctorRouter.delete('/medicos/:id', handleDeleteDoctor);
 
 // DoctorRouter.put('/medicos/:id/status', handleDoctorStatus)
 

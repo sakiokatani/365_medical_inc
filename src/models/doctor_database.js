@@ -18,7 +18,7 @@ const Doctor = connectSequelize.define('doctor',{
 
     gender:{
         type: Sequelize.ENUM(
-            'MASCULINO', 'FEMININO', 'NÃO-BINÁRIO', 'OUTROS' 
+            'MASCULINO', 'FEMININO', 'NAO_BINARIO', 'OUTROS' 
         ),
         allowNull: false 
     },
@@ -71,6 +71,11 @@ const Doctor = connectSequelize.define('doctor',{
         ),
         allowNull: true
     },
+
+    // attend(){
+      
+    //         }
+    // }
     
     // //Depois verificar como fazer esse autoincrement com o dado de outro banco ou função, ou será que é do numero de atendimentos daquele paciente específico?
     // TotalOfTreatedPatients:{
