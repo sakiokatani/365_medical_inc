@@ -19,10 +19,10 @@ async function handlePatientStatus(req, res) {
   
       const newServiceStatus = req.body.serviceStatus;
       const allowedServiceStatuses = [
-        'AGUARDANDO ATENDIMENTO',
-        'EM ATENDIMENTO',
+        'AGUARDANDO_ATENDIMENTO',
+        'EM_ATENDIMENTO',
         'ATENDIDO',
-        'NAO ATENDIDO'
+        'NAO_ATENDIDO'
       ];
   
       if (!allowedServiceStatuses.includes(newServiceStatus)) {

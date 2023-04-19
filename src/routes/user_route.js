@@ -7,7 +7,7 @@ const { handleDeletePatient } = require('./patient_routes/patient_delete' );
 // const myMiddleware = require('../../controllers/user-controller');
 const patientCreateRouter = require('./patient_routes/patient_create');
 const { handlePatientStatus } = require('./patient_routes/patient_statusUpdate');
-const { handlePatientDataById } = require('./patient_routes/patient_list');
+const { handlePatientDataAll } = require('./patient_routes/patient_consult_all');
 
 router.use(bodyParser.json());
 
@@ -54,14 +54,15 @@ router.put('/pacientes/:id/status', async(req, res)=>{
     }
 });
 
-router.get('/pacientes/:id', async(req,res) => {
+router.get('/pacientes', async(req,res) => {
     try {
-        const getPatientDataById = await handlePatientDataById(req, res);
+        const getPatientDataById = await handlePatientDataAll(req, res);
         
     } catch (error) {
         console.error(error);
     }
   })
+
   // Export router
   module.exports = router;
 
