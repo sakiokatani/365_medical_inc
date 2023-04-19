@@ -7,7 +7,7 @@ const { handleDeleteDoctor } = require('./doctor_routes/doctor_delete' );
 // const myMiddleware = require('../../controllers/user-controller');
 
 // const { handleDoctorStatus } = require('./doctor_routes/doctor_statusUpdate');
-// const { handleDoctorDataAll } = require('./doctor_routes/doctor_consult_all');
+const { handleDoctorDataAll } = require('./doctor_routes/doctor_consult_all');
 
 doctorRouter.use(bodyParser.json());
 
@@ -26,7 +26,7 @@ doctorRouter.delete('/medicos/:id', handleDeleteDoctor);
 
 // DoctorRouter.put('/medicos/:id/status', handleDoctorStatus)
 
-// DoctorRouter.get('/medicos', handleDoctorDataAll) 
+doctorRouter.get('/medicos', handleDoctorDataAll) 
 
   // Export router
   module.exports = doctorRouter;

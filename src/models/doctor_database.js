@@ -64,7 +64,7 @@ const Doctor = connectSequelize.define('doctor',{
         allowNull: false
     },
 
-    sistemStatus:{
+    systemStatus:{
         type: Sequelize.ENUM(
             'ATIVO',
             'INATIVO'

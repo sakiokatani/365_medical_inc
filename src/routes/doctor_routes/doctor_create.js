@@ -18,7 +18,7 @@ async function handleCreateDoctor(req, res){
             academicInstitution: req.body.academicInstitution,
             crmuf: req.body.crmuf,
             specialization: req.body.specialization,
-            sistemStatus: req.body.sistemStatus,
+            systemStatus: req.body.systemStatus,
             }
 
         const filterDoctorByCpf = await Doctor.findOne(

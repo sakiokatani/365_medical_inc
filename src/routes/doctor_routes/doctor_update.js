@@ -22,8 +22,10 @@ async function handleUpdateDoctor(req, res){
             DoctorById.academicInstitution= req.body.academicInstitution,
             DoctorById.crmuf= req.body.crmuf,
             DoctorById.specialization= req.body.specialization,
-            DoctorById.sistemStatus= req.body.sistemStatus
+            DoctorById.systemStatus= req.body.systemStatus
         
+            DoctorById.save();
+
             res.status(200).json(DoctorById);
         
     } catch (error) {
