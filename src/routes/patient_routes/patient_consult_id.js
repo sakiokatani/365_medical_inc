@@ -9,14 +9,12 @@ router.use(bodyParser.json());
 async function handlePatientDataById(req, res){
        
         const patientInDatabase = await Patient.findByPk(req.params.id);
-        console.log(patientInDatabase);
         try{
-        if(!patientInDatabase){
-                res.status(404).jason({mensagem:"paciente não encontrado. Verifique o ID e tente novamente."})
+                if(patientInDatabase === null){
+               return res.status(404).jason({mensagem:"paciente não encontrado. Verifique o ID e tente novamente."})
                 
         }else{
-                console.log(patientInDatabase.status);
-                res.status(200).json(patientInDatabase)
+               return res.status(200).json(patientInDatabase)
         }
         } catch (error) {
         console.error(error);
