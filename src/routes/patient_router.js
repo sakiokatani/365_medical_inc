@@ -1,5 +1,5 @@
 const express = require('express');
-const router = express.Router();
+const PatientRouter = express.Router();
 const bodyParser = require('body-parser');
 const { handleCreatePatient } = require('./patient_routes/patient_create');
 const { handleUpdatePatient } = require('./patient_routes/patient_update');
@@ -9,27 +9,27 @@ const patientCreateRouter = require('./patient_routes/patient_create');
 const { handlePatientStatus } = require('./patient_routes/patient_statusUpdate');
 const { handlePatientDataAll } = require('./patient_routes/patient_consult_all');
 
-router.use(bodyParser.json());
+PatientRouter.use(bodyParser.json());
 
 
 // Define HTTP routes
-router.get('/', (req, res) => {
+PatientRouter.get('/', (req, res) => {
     res.status(200).json({message: 'connection to root has been established.'});
 });
 
 
-router.post('/pacientes', handleCreatePatient);
+PatientRouter.post('/pacientes', handleCreatePatient);
   
-router.put('/pacientes/:id', handleUpdatePatient)
+PatientRouter.put('/pacientes/:id', handleUpdatePatient)
 
-router.delete('/pacientes/:id', handleDeletePatient)
+PatientRouter.delete('/pacientes/:id', handleDeletePatient)
 
-router.put('/pacientes/:id/status', handlePatientStatus)
+PatientRouter.put('/pacientes/:id/status', handlePatientStatus)
 
-router.get('/pacientes', handlePatientDataAll) 
+PatientRouter.get('/pacientes', handlePatientDataAll) 
 
   // Export router
-  module.exports = router;
+  module.exports = PatientRouter;
 
 
 
