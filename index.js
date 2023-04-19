@@ -7,11 +7,14 @@ const connectSequelize = require ('./src/database');
     // connectSequelize.authenticate():
     connectSequelize.sync({alter:true});
 const Patient = require('./src/models/patient_database');
-const PatientRouter = require('./src/routes/patient_router');
+const Doctor = require('./src/models/doctor_database');
+const patientRouter = require('./src/routes/patient_router');
+const doctorRouter = require('./src/routes/doctor_router');
 const myMiddleware = require('./controllers/user-controller')
 
 
-application.use('/api', PatientRouter);
+application.use('/api', patientRouter);
+application.use('/api', doctorRouter);
 
 
 application.listen(3333,()=>{

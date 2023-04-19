@@ -30,7 +30,8 @@ const Doctor = connectSequelize.define('doctor',{
 
     cpf:{
         type: Sequelize.STRING,
-        allowNull: false 
+        allowNull: false ,
+        unique: true
     },
     
     phoneNumber:{
@@ -46,7 +47,7 @@ const Doctor = connectSequelize.define('doctor',{
     crmuf:{
         type: Sequelize.STRING,
         allowNull: true,
-        isUnique: true
+        unique: true
     },
 
     specialization:{

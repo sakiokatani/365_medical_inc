@@ -1,5 +1,5 @@
 const express = require('express');
-const PatientRouter = express.Router();
+const patientRouter = express.Router();
 const bodyParser = require('body-parser');
 const { handleCreatePatient } = require('./patient_routes/patient_create');
 const { handleUpdatePatient } = require('./patient_routes/patient_update');
@@ -10,30 +10,31 @@ const { handlePatientStatus } = require('./patient_routes/patient_statusUpdate')
 const { handlePatientDataAll } = require('./patient_routes/patient_consult_all');
 const { handlePatientDataById } = require('./patient_routes/patient_consult_id')
 
-PatientRouter.use(bodyParser.json());
+patientRouter.use(bodyParser.json());
 
 
 // Define HTTP routes
 //Não preciso de try catch aqui pois cada função já cuida disso
-PatientRouter.get('/', (req, res) => {
+patientRouter.get('/', (req, res) => {
     res.status(200).json({message: 'connection to root has been established.'});
 });
 
 
-PatientRouter.post('/pacientes', handleCreatePatient);
+patientRouter.post('/pacientes', handleCreatePatient);
   
-PatientRouter.put('/pacientes/:id', handleUpdatePatient);
+patientRouter.put('/pacientes/:id', handleUpdatePatient);
 
-PatientRouter.delete('/pacientes/:id', handleDeletePatient);
+patientRouter.delete('/pacientes/:id', handleDeletePatient);
 
-PatientRouter.put('/pacientes/:id/status', handlePatientStatus);
+patientRouter.put('/pacientes/:id/status', handlePatientStatus);
 
-PatientRouter.get('/pacientes', handlePatientDataAll);
+patientRouter.get('/pacientes', handlePatientDataAll);
 
-PatientRouter.get('/pacientes/:id', handlePatientDataById);
+patientRouter.get('/pacientes/:id', handlePatientDataById);
+
 
   // Export router
-  module.exports = PatientRouter;
+  module.exports = patientRouter;
 
 
 
