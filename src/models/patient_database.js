@@ -2,6 +2,8 @@ const { Sequelize } = require('sequelize');
 const connectSequelize = require ('../database');
 
 const Patient = connectSequelize.define('patient',{
+       
+
     id:{
         type: Sequelize.INTEGER,
         autoIncrement: true,
@@ -64,21 +66,14 @@ const Patient = connectSequelize.define('patient',{
         allowNull: false
     },
     
-    // classMethod: {
-    //     associate: function(models){
-    //         Doctor.hasMany(models.Doctor,{
-    //             foreignKey: 'location'
-    //         })
-    //     }
-    
-    // //Depois verificar como fazer esse autoincrement com o dado de outro banco ou função, ou será que é do numero de atendimentos daquele paciente específico?
-    // TotalOfTreatedPatients:{
-    //     type: Sequelize.INTEGER,
-    //     autoIncrement: true,
-    //     allowNull: true
-    // },
+    totalOfAttendances:{
+        type: Sequelize.INTEGER
+        
+    },
 
-
+    // attendance(){
+    //     totalOfAttendances =+1
+    // }
     
 })
 

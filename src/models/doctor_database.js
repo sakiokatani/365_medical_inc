@@ -72,19 +72,10 @@ const Doctor = connectSequelize.define('doctor',{
         allowNull: true
     },
 
-    // attend(){
-      
-    //         }
-    // }
-    
-    // //Depois verificar como fazer esse autoincrement com o dado de outro banco ou função, ou será que é do numero de atendimentos daquele paciente específico?
-    // TotalOfTreatedPatients:{
-    //     type: Sequelize.INTEGER,
-    // for (let counter =0; atendimento === true; counter ++){
-    // 
-    // }
-    //  
-    // },
+    totalOfAttendances:{
+        type: Sequelize.INTEGER
+    }
+
     //método: perguntar qual médico e qual paciente foir feito o atendimento, ter identificador do paciente
 
 

@@ -1,14 +1,9 @@
-function attendance(){
-    let attendance = false;
-    let numberOfAttendance = 0;
-        if (Doctor.attend()){
-            atttendance = true;
-            numberOfAttendance++;
-            return numberOfAttendance;
-        }else{
-            attendance = false;
-            return numberOfAttendance;
-        }
+// class Patient{
+//     constructor(){
+//         this.totalOfAttendances = 0;
+//     }
 
-        console.log(numberOfAttendance);
-    }
+// }
+
+// //Quando cria o objeto paciente,ele já vai ter o atendimento =0;
+// // O construtor só é chamado no momento em que o objeto é insatnciado

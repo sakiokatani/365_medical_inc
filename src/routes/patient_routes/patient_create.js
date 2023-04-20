@@ -11,6 +11,7 @@ router.use(bodyParser.json());
 async function handleCreatePatient(req, res) {
 
  try {
+
     const patientData = {
         name: req.body.name,
         gender: req.body.gender,
@@ -20,7 +21,8 @@ async function handleCreatePatient(req, res) {
         emergencyContact: req.body.emergencyContact,
         alllergyList: req.body.alllergyList,
         healthInsurance: req.body.healthInsurance,
-        serviceStatus: req.body.serviceStatus
+        serviceStatus: req.body.serviceStatus,
+        
     }
     console.log(patientData)
 

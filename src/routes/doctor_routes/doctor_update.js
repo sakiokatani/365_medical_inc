@@ -21,10 +21,16 @@ async function handleUpdateDoctor(req, res){
             DoctorById.phoneNumber= req.body.phoneNumber,
             DoctorById.academicInstitution= req.body.academicInstitution,
             DoctorById.crmuf= req.body.crmuf,
-            DoctorById.specialization= req.body.specialization,
+            DoctorById.specialization= req.body.specialization
+            
+            
+            if(Doctor.rawAttributes.systemStatus.values.includes(req.body.systemStatus)){
             DoctorById.systemStatus= req.body.systemStatus
-        
-            DoctorById.save();
+            } else{
+                res.status(409).json({mensagem:"Favor inserir um status válido."})
+            }
+                    
+            await DoctorById.save();
 
             res.status(200).json(DoctorById);
         

@@ -25,6 +25,12 @@ async function handleUpdatePatient(req, res){
             patientInDatabase.specialCareList= req.body.specialCareList;
             patientInDatabase.healthInsurance= req.body.healthInsurance;
             
+            if(Patient.rawAttributes.serviceStatus.values.includes(req.body.serviceStatus)){
+                patientInDatabase.serviceStatus= req.body.serviceStatus
+                } else{
+                    res.status(409).json({mensagem:"Favor inserir um status válido."})
+                }
+                
         await patientInDatabase.save();
         
         res.status(200).json(patientInDatabase);
