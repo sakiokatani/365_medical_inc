@@ -48,7 +48,7 @@ async function handleDoctorStatus(req, res) {
     } catch (error) {
       console.error(error);
       res.status(500).json({
-        mmensagem:
+        mensagem:
           'Houve um erro interno no servidor. Verifique o caminho e tente novamente.'
       });
     }
