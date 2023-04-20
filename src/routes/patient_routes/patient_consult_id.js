@@ -11,7 +11,7 @@ async function handlePatientDataById(req, res){
         const patientInDatabase = await Patient.findByPk(req.params.id);
         try{
                 if(patientInDatabase === null){
-               return res.status(404).jason({mensagem:"paciente não encontrado. Verifique o ID e tente novamente."})
+               return res.status(404).json({mensagem:"paciente não encontrado. Verifique o ID e tente novamente."})
                 
         }else{
                return res.status(200).json(patientInDatabase)
