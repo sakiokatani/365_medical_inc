@@ -1,14 +1,14 @@
 const express = require('express');
 const patientRouter = express.Router();
 const bodyParser = require('body-parser');
-const { handleCreatePatient } = require('./patient_routes/patient_create');
-const { handleUpdatePatient } = require('./patient_routes/patient_update');
-const { handleDeletePatient } = require('./patient_routes/patient_delete' );
+const { handleCreatePatient } = require('../../controllers/patient_routes/patient_create');
+const { handleUpdatePatient } = require('../../controllers/patient_routes/patient_update');
+const { handleDeletePatient } = require('../../controllers/patient_routes/patient_delete' );
 // const myMiddleware = require('../../controllers/user-controller');
 // const patientCreateRouter = require('./patient_routes/patient_create');
-const { handlePatientStatus } = require('./patient_routes/patient_statusUpdate');
-const { handlePatientDataAll } = require('./patient_routes/patient_consult_all');
-const { handlePatientDataById } = require('./patient_routes/patient_consult_id')
+const { handlePatientStatus } = require('../../controllers/patient_routes/patient_statusUpdate');
+const { handlePatientDataAll } = require('../../controllers/patient_routes/patient_consult_all');
+const { handlePatientDataById } = require('../../controllers/patient_routes/patient_consult_id')
 
 patientRouter.use(bodyParser.json());
 

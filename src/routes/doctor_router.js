@@ -1,14 +1,14 @@
 const express = require('express');
 const doctorRouter = express.Router();
 const bodyParser = require('body-parser');
-const { handleCreateDoctor } = require('./doctor_routes/doctor_create');
-const { handleUpdateDoctor } = require('./doctor_routes/doctor_update');
-const { handleDeleteDoctor } = require('./doctor_routes/doctor_delete' );
+const { handleCreateDoctor } = require('../../controllers/doctor_routes/doctor_create');
+const { handleUpdateDoctor } = require('../../controllers/doctor_routes/doctor_update');
+const { handleDeleteDoctor } = require('../../controllers/doctor_routes/doctor_delete' );
 // const myMiddleware = require('../../controllers/user-controller');
 
-const { handleDoctorStatus } = require('./doctor_routes/doctor_statusUpdate');
-const { handleDoctorDataAll } = require('./doctor_routes/doctor_consult_all');
-const { handleDoctorDataById } = require('./doctor_routes/doctor_consult_id');
+const { handleDoctorStatus } = require('../../controllers/doctor_routes/doctor_statusUpdate');
+const { handleDoctorDataAll } = require('../../controllers/doctor_routes/doctor_consult_all');
+const { handleDoctorDataById } = require('../../controllers/doctor_routes/doctor_consult_id');
 
 doctorRouter.use(bodyParser.json());
 

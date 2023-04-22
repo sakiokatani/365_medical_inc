@@ -1,7 +1,7 @@
 const express = require('express'); 
-const connectSequelize = require('../../database');
+const connectSequelize = require('../../src/database');
         connectSequelize.sync({alter:true});
-const Patient = require('../../models/patient_database');
+const Patient = require('../../src/models/patient_database');
 const router = express.Router();
 const bodyParser = require('body-parser');
 router.use(bodyParser.json());

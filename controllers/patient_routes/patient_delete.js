@@ -1,28 +1,28 @@
 const express = require('express'); 
-const connectSequelize = require('../../database');
+const connectSequelize = require('../../src/database');
         connectSequelize.sync({alter:true});
-const Nurse = require('../../models/nurse_database');
+const Patient = require('../../src/models/patient_database');
 const router = express.Router();
 const bodyParser = require('body-parser');
 router.use(bodyParser.json());
 
 
 
-async function handleDeleteNurse(req, res){
+async function handleDeletePatient(req, res){
     try{
         // console.log("Entrei no try");
-        const findNurseById = await Nurse.findByPk(req.params.id) ;
-        // console.log(findNurseById);
+        const findPatientById = await Patient.findByPk(req.params.id) ;
+        // console.log(findPatientById);
 
-        if(findNurseById !== null){
-            await Nurse.destroy(
+        if(findPatientById !== null){
+            await Patient.destroy(
                 {
                     where:{
                         id: req.params.id
                     }
                 }
                 )
-                return res.status(204).json({message:'Nurse deleted successfully'});
+                return res.status(204).json({message:'Patient deleted successfully'});
 
                 //PRGUNTA PRA CORREÇÃO: PQ NÃO FUNCIONA SEM O JSON COM RES.STATUS(204) - NÃO RETORNA RESPOSTA,
                 // MAS FUNCIONA 204 COM JSON E 2000 COM JSON NORMALMENTE
@@ -37,4 +37,4 @@ async function handleDeleteNurse(req, res){
     }
 }
 
-module.exports = {handleDeleteNurse};
+module.exports = {handleDeletePatient};
