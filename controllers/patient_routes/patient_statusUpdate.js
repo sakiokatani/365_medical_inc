@@ -13,39 +13,25 @@ async function handlePatientStatus(req, res) {
       const patientInDatabase = await Patient.findByPk(req.params.id);
   
       if (!patientInDatabase) {
-        res.status(404).json({ message: 'Paciente não encontrado' });
-        return;
+        return res.status(404).json({ message: 'Paciente não encontrado' });
       }
   
       const newServiceStatus = req.body.serviceStatus;
-      const allowedServiceStatuses = [
-        'AGUARDANDO_ATENDIMENTO',
-        'EM_ATENDIMENTO',
-        'ATENDIDO',
-        'NAO_ATENDIDO'
-      ];
   
-      if (!allowedServiceStatuses.includes(newServiceStatus)) {
-        res.status(400).json({
-          message: 'Favor inserir um status válido para paciente'
-        });
-        return;
+      if (patientInDatabase.serviceStatus !== newServiceStatus && !Patient.rawAttributes.serviceStatus.values.includes(newServiceStatus)) {
+        return res.status(400).json({message: `Favor inserir um status válido para paciente: ${Patient.rawAttributes.serviceStatus.values}`});
+      
+      }else if(patientInDatabase.serviceStatus === newServiceStatus && Patient.rawAttributes.serviceStatus.values.includes(newServiceStatus)){
+        return res.status(200).json({message: `Status de Servço já é ${newServiceStatus} para paciente ${patientInDatabase.full_name}`});
+      
+      }else{
+        patientInDatabase.serviceStatus = newServiceStatus;
+        await patientInDatabase.save();
+        return res.status(200).json({mensagem: `Status de Servço atualizado para ${patientInDatabase.serviceStatus} para paciente ${patientInDatabase.full_name}`});
       }
+      
   
-      if (patientInDatabase.serviceStatus === newServiceStatus) {
-        res.status(200).json({
-          message: `Status de Servço já é ${newServiceStatus} para paciente ${patientInDatabase.full_name}`
-        });
-        return;
-      }
-  
-      patientInDatabase.serviceStatus = newServiceStatus;
-      await patientInDatabase.save();
-      res
-        .status(200)
-        .json({
-          mensagem: `Status de Servço atualizado com sucesso para paciente ${patientInDatabase.full_name}`
-        });
+      
     } catch (error) {
       console.error(error);
       res.status(500).json({
@@ -54,42 +40,6 @@ async function handlePatientStatus(req, res) {
       });
     }
   }
-
-
-
-
-
-
-// async function handlePatientStatus(req, res) {
-
-//     try {
-//         console.log("entrei no try");
-//         const patientInDatabase = await Patient.findByPk(req.params.id);
-//         const newServiceStatus = req.body.serviceStatus;
-//         const serviceStatusEnum = {
-//             AGUARDANDO_ATENDIMENTO: 'AGUARDANDO ATENDIMENTO',
-//             EM_ATENDIMENTO: 'EM ATENDIMENTO',
-//             ATENDIDO: 'ATENDIDO',
-//             NAO_ATENDIDO: 'NAO ATENDIDO'
-//           };
-//         console.log(patientInDatabase);
-//         if(!patientInDatabase){
-//             res.status(404).json({message:'Paciente não encontrado'});
-//         }else if(patientInDatabase.serviceStatus === newServiceStatus || !Object.values(serviceStatusEnum).includes(newServiceStatus)){
-//             res.status(400).json({message:'Favor inserir um status válido para o paciente'});
-//         }
-        
-        
-//         patientInDatabase.serviceStatus= req.body.serviceStatus;
-
-//         await patientInDatabase.save();
-//         res.status(200).json({mensagem:`Status de Servço atualizado com sucesso para paciente ${patientInDatabase.full_name}`});
-
-//     } catch (error) {
-//         console.error(error);
-//         res.status(404).json({message:'Não há nenhum registro com os dados informados. Verifique o caminho e tente novamente'})
-//     }
-// }
 
 
 module.exports = { handlePatientStatus };

@@ -39,35 +39,21 @@ async function handleCreatePatient(req, res) {
         }
     )
     
-    const allowedServiceStatuses = [
-        'AGUARDANDO_ATENDIMENTO',
-        'EM_ATENDIMENTO',
-        'ATENDIDO',
-        'NAO_ATENDIDO'
-      ];
+    const allowedServiceStatuses = Patient.rawAttributes.serviceStatus;
+    console.log(allowedServiceStatuses);
 
-      const allowedGender = [
-        'FEMININO',
-        'MASCULINO',
-        'NAO_BINARIO',
-        'OUTROS'
-      ];
-
+    const allowedGender = Patient.rawAttributes.gender;
 
 
     if(filterPatientsByCpf === null){
         const newServiceStatus = req.body.serviceStatus;
         const newGender = req.body.gender;
-        if (!allowedServiceStatuses.includes(newServiceStatus)) {
-            return res.status(400).json({
-              message: `Favor escolher um status válido: ${allowedServiceStatuses}.`
-            });
+        if (!allowedServiceStatuses.values.includes(newServiceStatus)) {
+            return res.status(400).json({message: `Favor escolher um status válido: ${allowedServiceStatuses.values}.`});
         }
 
-        if (!allowedGender.includes(newGender)) {
-            return res.status(400).json({
-              message: `Favor escolher um gênero válido: ${allowedGender}.`
-            });
+        if (!allowedGender.values.includes(newGender)) {
+            return res.status(400).json({message: `Favor escolher um gênero válido: ${allowedGender.values}.`});
         }
         
         const newPatient = await Patient.create(patientData);
