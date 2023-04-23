@@ -11,7 +11,7 @@ const Patient = connectSequelize.define('patient',{
         primaryKey: true
     },
 
-    name: {
+    full_name: {
         type: Sequelize.STRING,
         allowNull: false,
     },
@@ -67,7 +67,8 @@ const Patient = connectSequelize.define('patient',{
     },
     
     totalOfAttendances:{
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        defaultValue: 0
         
     },
 

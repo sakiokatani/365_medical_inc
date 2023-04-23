@@ -11,7 +11,7 @@ const Nurse = connectSequelize.define('nurse',{
         primaryKey: true
     },
 
-    name: {
+    full_name: {
         type: Sequelize.STRING,
         allowNull: false,
     },

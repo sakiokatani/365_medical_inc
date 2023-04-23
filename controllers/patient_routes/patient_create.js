@@ -13,7 +13,7 @@ async function handleCreatePatient(req, res) {
  try {
 
     const patientData = {
-        name: req.body.name,
+        full_name: req.body.full_name,
         gender: req.body.gender,
         dateOfBirth: req.body.dateOfBirth,
         cpf: req.body.cpf,
@@ -26,7 +26,7 @@ async function handleCreatePatient(req, res) {
     }
     console.log(patientData)
 
-    if(!patientData.name || !patientData.gender || ! patientData.dateOfBirth || !patientData.cpf || !patientData.emergencyContact || !patientData.serviceStatus){
+    if(!patientData.full_name || !patientData.gender || ! patientData.dateOfBirth || !patientData.cpf || !patientData.emergencyContact || !patientData.serviceStatus){
         return res.status(400).json({mensagem:'Dados inválidos ou incompletos. Preencha corretamente os campos indicados como obrigatórios'});
     }
 

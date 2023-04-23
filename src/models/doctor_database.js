@@ -11,7 +11,7 @@ const Doctor = connectSequelize.define('doctor',{
         primaryKey: true
     },
 
-    name: {
+    full_name: {
         type: Sequelize.STRING,
         allowNull: false,
     },
@@ -69,11 +69,13 @@ const Doctor = connectSequelize.define('doctor',{
             'ATIVO',
             'INATIVO'
         ),
+        defaultValue: 'ATIVO',
         allowNull: false
     },
 
     totalOfAttendances:{
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        defaultValue: 0
     }
 
     //método: perguntar qual médico e qual paciente foir feito o atendimento, ter identificador do paciente

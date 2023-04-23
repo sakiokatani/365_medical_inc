@@ -12,7 +12,7 @@ async function handleCreateNurse(req, res){
     try {
         console.log("Entrei")
         const nurseData ={
-            name: req.body.name,
+            full_name: req.body.full_name,
             gender: req.body.gender,
             dateOfBirth: req.body.dateOfBirth,
             cpf: req.body.cpf,
@@ -42,10 +42,10 @@ async function handleCreateNurse(req, res){
     console.log(filterNurseByCofen);
     
     if(filterNurseByCpf !== null ){
-        return res.status(409).json({mensagem: `Enfermeiro ${filterNurseByCpf.name} com este CPF já está cadastrado no sistema`})
+        return res.status(409).json({mensagem: `Enfermeiro ${filterNurseByCpf.full_name} com este CPF já está cadastrado no sistema`})
     };
     if(filterNurseByCofen !== null){
-        return res.status(409).json({mensagem: `Enfermeiro ${filterNurseByCofen.name} com este COFEN/UF já está cadastrado no sistema`})
+        return res.status(409).json({mensagem: `Enfermeiro ${filterNurseByCofen.full_name} com este COFEN/UF já está cadastrado no sistema`})
     };
 
 

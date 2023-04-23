@@ -33,7 +33,7 @@ async function handleDoctorStatus(req, res) {
   
       if (doctorInDatabase.systemStatus === newSystemStatus) {
         res.status(200).json({
-            mensagem: `Status de Servço já é ${newSystemStatus} para médico ${doctorInDatabase.name}`
+            mensagem: `Status de Servço já é ${newSystemStatus} para médico ${doctorInDatabase.full_name}`
         });
         return;
       }
@@ -43,7 +43,7 @@ async function handleDoctorStatus(req, res) {
       res
         .status(200)
         .json({
-          mensagem: `Status de Servço atualizado com sucesso para médico ${doctorInDatabase.name}`
+          mensagem: `Status de Servço atualizado com sucesso para médico ${doctorInDatabase.full_name}`
         });
     } catch (error) {
       console.error(error);

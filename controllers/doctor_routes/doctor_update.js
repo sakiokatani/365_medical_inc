@@ -14,7 +14,7 @@ async function handleUpdateDoctor(req, res){
             return res.status(400).json({message: 'Dados inválidos. Verifique o Id do médico e tente novamente.'})
             
         }
-            DoctorById.name= req.body.name,
+            DoctorById.full_name= req.body.full_name,
             DoctorById.gender= req.body.gender,
             DoctorById.dateOfBirth= req.body.dateOfBirth,
             DoctorById.cpf= req.body.cpf,

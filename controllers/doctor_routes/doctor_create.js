@@ -10,7 +10,7 @@ router.use(bodyParser.json());
 async function handleCreateDoctor(req, res){
     try {
         const doctorData = {
-            name: req.body.name,
+            full_name: req.body.full_name,
             gender: req.body.gender,
             dateOfBirth: req.body.dateOfBirth,
             cpf: req.body.cpf,
@@ -38,7 +38,7 @@ async function handleCreateDoctor(req, res){
             }
         )
         
-        if(!doctorData.name || !doctorData. dateOfBirth|| !doctorData.cpf || !doctorData. specialization || !doctorData.crmuf ){
+        if(!doctorData.full_name || !doctorData. dateOfBirth|| !doctorData.cpf || !doctorData. specialization || !doctorData.crmuf ){
             return res.status(406).json({mensagem: 'Preencha todos os campos obrigatórios'});
             }
 

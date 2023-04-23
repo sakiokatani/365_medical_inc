@@ -28,9 +28,9 @@ async function handleDoctorDataAll(req, res){
                 }
             }
             );
-            const listDoctorsByStatus = findDoctorsByStatus.map(({id, name, specialization})=>({
+            const listDoctorsByStatus = findDoctorsByStatus.map(({id, full_name, specialization})=>({
                 id,
-                name,
+                full_name,
                 specialization
                 }
             ));

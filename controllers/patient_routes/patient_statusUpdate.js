@@ -34,7 +34,7 @@ async function handlePatientStatus(req, res) {
   
       if (patientInDatabase.serviceStatus === newServiceStatus) {
         res.status(200).json({
-          message: `Status de Servço já é ${newServiceStatus} para paciente ${patientInDatabase.name}`
+          message: `Status de Servço já é ${newServiceStatus} para paciente ${patientInDatabase.full_name}`
         });
         return;
       }
@@ -44,7 +44,7 @@ async function handlePatientStatus(req, res) {
       res
         .status(200)
         .json({
-          mensagem: `Status de Servço atualizado com sucesso para paciente ${patientInDatabase.name}`
+          mensagem: `Status de Servço atualizado com sucesso para paciente ${patientInDatabase.full_name}`
         });
     } catch (error) {
       console.error(error);
@@ -83,7 +83,7 @@ async function handlePatientStatus(req, res) {
 //         patientInDatabase.serviceStatus= req.body.serviceStatus;
 
 //         await patientInDatabase.save();
-//         res.status(200).json({mensagem:`Status de Servço atualizado com sucesso para paciente ${patientInDatabase.name}`});
+//         res.status(200).json({mensagem:`Status de Servço atualizado com sucesso para paciente ${patientInDatabase.full_name}`});
 
 //     } catch (error) {
 //         console.error(error);
