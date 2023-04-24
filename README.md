@@ -15,27 +15,29 @@ A Proposta do projeto avaliativo consiste na construção do API através de Exp
 <il>OMR Sequelize</il>
 <il>Node.js</il></ul>>
 
+<h3>Requisitos:</h3>
+<ul><li>IDE de desenvolvimento de web/software(VSCode, Atom, etc)</li>
+<li>Node.js</li>
+<li>SGBD postgre(pgAdmin)</li>
+<li>API de manipulação de dados(postman, Insomnia)</li>
+</ul>
+
+<h3>INFORMAÇÕES PARA USUÁRIO:</h3>
+
 <h3>Como executar o projeto</h3>
 <ul><h4>Instalaçãodas fameworks:</h4>
 <li>Inicialize o node com o comando <i>npm init</i></li> 
 <li>Instale o Express: <i>npm install express</i></li>
 <li>Instale o Sequelize e o postgre: <i>npm install sequelize pg pg-hstore</i></li>
 <li>Instale o nodemon: <i>npm install nodemon</i></li></ul>
+<li>Inicialize o projeto: <i>npm start</i></li></ul>
 
-<br>
-
-<ul><h4>Inicialização:</h4>
-<li></li>
-<li></li></ul>
-<br>
 <br>
 <h3><b>COMO REALIZAR OPERAÇÕES NO BANCO DE DADOS</b></h3>
-A modificação do banco de dados deve ser feita através de IDEs de requisição a APis como Postman ou Insomnia, seguindo as sequintes rotas:
-
+A modificação do banco de dados deve ser feita através de APIs de requisição e envio de dados como Postman ou Insomnia, com o body sempre em JSON e seguindo as sequintes rotas:
 <br>
 
 <ul><h4><b>Para pacientes:</b></h4><br>
-<b>Criação de novos cadastros:</b><br>
 <ul><b>Criação de novos cadastros:</b><br>
 <li>Tipo de rota: POST<br></li>
 <li>Rota: http://localhost:3333/api/pacientes </li></ul><br>
@@ -55,11 +57,9 @@ A modificação do banco de dados deve ser feita através de IDEs de requisiçã
 <ul><li><b>Consulta por ID:</b><br>
 <li>Tipo de rota: GET<br>
 <li>Rota: http://localhost:3333/api/pacientes/:id (substitua :id pelo número do ID do paciente)</ul></li></ul><br>
-
 <br>
 
 <ul><h4><b>Para Médicos:</b></h4><br>
-<b>Criação de novos cadastros:</b><br>
 <ul><b>Criação de novos cadastros:</b><br>
 <li>Tipo de rota: POST<br></li>
 <li>Rota: http://localhost:3333/api/medicos </li></ul><br>
@@ -80,10 +80,8 @@ A modificação do banco de dados deve ser feita através de IDEs de requisiçã
 <li>Tipo de rota: GET<br>
 <li>Rota: http://localhost:3333/api/medicos/:id (substitua :id pelo número do ID do medico)</ul></li></ul><br>
 
-
 <br>
 <ul><h4><b>Para Enfermeiros:</b></h4><br>
-<b>Criação de novos cadastros:</b><br>
 <ul><b>Criação de novos cadastros:</b><br>
 <li>Tipo de rota: POST<br></li>
 <li>Rota: http://localhost:3333/api/enfermeiros </li></ul><br>
@@ -103,5 +101,8 @@ A modificação do banco de dados deve ser feita através de IDEs de requisiçã
 <li>Rota: http://localhost:3333/api/enfermeiros/:id (substitua :id pelo número do ID do enfermeiro)</ul></li></ul><br>
 
 
+<h3>INFORMAÇÕES PARA DESENVOLVEDORES:<h3>
 
-
+//estruturação em módulos e pastas, seguindo a estrutura:
+//o que ainda falta implementar: colocar nome completo na tabela de attendances ao relacionar médico e paciente
+//implementação de consulta por nome, não apenas id
