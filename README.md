@@ -18,31 +18,39 @@ A modificação do banco de dados deve ser feita através de IDEs de requisiçã
 <il>Node.js</il>
 
 <h3>Como executar o projeto</h3>
-<ul><h5>Instalação</h5></ul>
+<ul><h4>Clonagem do projeto:</h4></ul>
+<li></li>
+<li></li>
+<ul><h4>Instalaçãodas fameworks:</h4></ul>
+<li><h4><h4></li>
+<li></li>
+<ul><h4>Inicialização:</h4></ul>
+<li></li>
+<li></li>
 
 <br>
-<h5><b>Para pacientes:</b></h5>
-<b>Criação de novos cadastros:</b>
-<b>Atualização de castro:</b>
-<b>Atualização de status:</b>
-<b>Deleção de cadastro:</b>
-<b>Consulta geral:</b>
-<b>Consulta por ID:</b>
+<h4><b>Para pacientes:</b></h4><br>
+<b>Criação de novos cadastros:</b><br>
+<b>Atualização de castro:</b><br>
+<b>Atualização de status:</b><br>
+<b>Deleção de cadastro:</b><br>
+<b>Consulta geral:</b><br>
+<b>Consulta por ID:</b><br>
 <br>
-<h5><b>Para Médicos:</b></h5>
-<b>Criação de novos cadastros:</b>
-<b>Atualização de castro:</b>
-<b>Atualização de status:</b>
-<b>Deleção de cadastro:</b>
-<b>Consulta geral:</b>
-<b>Consulta por ID:</b>
+<h4><b>Para Médicos:</b></h4><br>
+<b>Criação de novos cadastros:</b><br>
+<b>Atualização de castro:</b><br>
+<b>Atualização de status:</b><br>
+<b>Deleção de cadastro:</b><br>
+<b>Consulta geral:</b><br>
+<b>Consulta por ID:</b><br>
 <br>
-<h5><b>Para Enfermeiros:</b></h5>
-<b>Criação de novos cadastros:</b>
-<b>Atualização de castro:</b>
-<b>Deleção de cadastro:</b>
-<b>Consulta geral:</b>
-<b>Consulta por ID:</b>
+<h4><b>Para Enfermeiros:</b></h4><br>
+<b>Criação de novos cadastros:</b><br>
+<b>Atualização de castro:</b><br>
+<b>Deleção de cadastro:</b><br>
+<b>Consulta geral:</b><br>
+<b>Consulta por ID:</b><br>
 <br>
 <b></b>
 
