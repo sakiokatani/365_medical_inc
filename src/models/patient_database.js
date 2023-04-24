@@ -20,12 +20,10 @@ const Patient = connectSequelize.define('patient',{
         type: Sequelize.ENUM(
             'MASCULINO', 'FEMININO', 'NAO_BINARIO', 'OUTROS' 
         ),
-        allowNull: false 
     },
 
     dateOfBirth:{
         type: Sequelize.DATEONLY,
-        allowNull: false 
     },
 
     cpf:{
@@ -36,7 +34,6 @@ const Patient = connectSequelize.define('patient',{
     
     phoneNumber:{
         type: Sequelize.STRING,
-        allowNull: false 
     },
 
     emergencyContact:{
@@ -46,17 +43,14 @@ const Patient = connectSequelize.define('patient',{
 
     alllergyList:{
         type: Sequelize.STRING,
-        allowNull: true 
     },
 
     specialCareList:{
         type: Sequelize.STRING,
-        allowNull: true
     },
 
     healthInsurance:{
         type: Sequelize.STRING,
-        allowNull: true
     },
     
     serviceStatus:{
@@ -71,12 +65,12 @@ const Patient = connectSequelize.define('patient',{
         defaultValue: 0
         
     },
+},
 
-    // attendance(){
-    //     totalOfAttendances =+1
-    // }
-    
-})
+) ;
 
+Patient.associate = function(models) {
+    Patient.hasMany(models.Attendance, { foreignKey: 'AttendanceId' });
+  };
 
 module.exports = Patient;

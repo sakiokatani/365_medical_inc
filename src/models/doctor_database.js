@@ -1,7 +1,5 @@
 const { Sequelize } = require('sequelize');
 const connectSequelize = require ('../database');
-const TotalOfAttendances = require('../models/numberOfAttendedPatients')
-
 
 const Doctor = connectSequelize.define('doctor',{
     id:{
@@ -20,7 +18,6 @@ const Doctor = connectSequelize.define('doctor',{
         type: Sequelize.ENUM(
             'MASCULINO', 'FEMININO', 'NAO_BINARIO', 'OUTROS' 
         ),
-        allowNull: false 
     },
 
     dateOfBirth:{
@@ -36,7 +33,6 @@ const Doctor = connectSequelize.define('doctor',{
     
     phoneNumber:{
         type: Sequelize.STRING,
-        allowNull: false 
     },
 
     academicInstitution:{
@@ -78,14 +74,12 @@ const Doctor = connectSequelize.define('doctor',{
         defaultValue: 0
     }
 
-    //método: perguntar qual médico e qual paciente foir feito o atendimento, ter identificador do paciente
-
-
-
     
 })
 
-// Doctor.hasMany(TotalOfAttendances, { foreignKey: 'doctor_id' });
+Doctor.associate = function(models) {
+    Doctor.hasMany(models.Attendance, { foreignKey: 'AttendanceId' });
+  };
 
 module.exports = Doctor;
 

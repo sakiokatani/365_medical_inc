@@ -131,7 +131,7 @@ async function handleUpdatePatient(req, res){
                     res.status(403).json({mensagem: "Não é permitido mudar o ID no sistema manualmente."})
                 
                 }else{
-                return res.status(406).json({mensagem:`Todos os dados do paciente ${patientInDatabase.full_name} já estão atualizados. Cadastro: `,
+                return res.status(409).json({mensagem:`Todos os dados do paciente ${patientInDatabase.full_name} já estão atualizados. Cadastro: `,
                 id: patientInDatabase.id,
                 full_name : patientInDatabase.full_name,
                 gender: patientInDatabase.gender,

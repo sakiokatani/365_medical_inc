@@ -12,4 +12,4 @@ attendanceRouter.get('/', (req, res) => {
 //criar as funções ainda
 attendanceRouter.post('/atendimentos', totalOfAttendance);
 
-// module.exports = attendanceRouter;
+module.exports = attendanceRouter;

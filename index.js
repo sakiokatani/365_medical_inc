@@ -12,13 +12,13 @@ const Nurse = require('./src/models/nurse_database');
 const patientRouter = require('./src/routes/patient_router');
 const doctorRouter = require('./src/routes/doctor_router');
 const nurseRouter = require('./src/routes/nurse_router');
-// const attendanceRouter = require('./src/routes/attendance_router')
+const attendanceRouter = require('./src/routes/attendance_router')
 
 
 application.use('/api', patientRouter);
 application.use('/api', doctorRouter);
 application.use('/api', nurseRouter);
-// application.use('/api', attendanceRouter);
+application.use('/api', attendanceRouter);
 
 
 application.listen(3333,()=>{
