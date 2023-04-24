@@ -10,8 +10,7 @@ async function handlePatientDataAll(req, res){
         try {   
                 const status = req.query.status;
                 let showPatients;
-                //Verificar primeiro se o status está sendo explicitado no req e então filtrar todos que têm esse status
-                //Como query é opcional, indicado por ? não é necessário colocar na rota, então posso fazer um if em uma única função
+
                 if (status){
                         showPatients = await Patient.findAll(
                                 {where:
