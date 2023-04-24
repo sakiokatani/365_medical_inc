@@ -75,10 +75,10 @@ A modificação do banco de dados deve ser feita através de APIs de requisiçã
 <ul><li><b>Consulta geral:</b><br>
 <li>Tipo de rota: GET<br>
 <li>Rota: http://localhost:3333/api/medicos (substitua :id pelo número do ID do medico)</ul></li> <br>
-<li>Rota: http://localhost:3333/api/medicos?status (substitua <i>:id</i> pelo número do ID do medico e <i>?status</i> por ?status=<status atual>)</ul></li> <br>
+<li>Rota: http://localhost:3333/api/medicos?status (substitua <i>:id</i> pelo número do ID do medico e <i>?status</i> por ?status=<status atual>)</li></ul> <br>
 <ul><li><b>Consulta por ID:</b><br>
 <li>Tipo de rota: GET<br>
-<li>Rota: http://localhost:3333/api/medicos/:id (substitua :id pelo número do ID do medico)</ul></li></ul><br>
+<li>Rota: http://localhost:3333/api/medicos/:id (substitua :id pelo número do ID do medico)</li></ul></ul><br>
 
 <br>
 <ul><h4><b>Para Enfermeiros:</b></h4><br>
@@ -95,10 +95,10 @@ A modificação do banco de dados deve ser feita através de APIs de requisiçã
 <li>Delete: http://localhost:3333/api/enfermeiros/:id (substitua :id pelo <li>número do ID do enfermeiro)</ul></li><br>
 <ul><li><b>Consulta geral:</b><br>
 <li>Tipo de rota: GET<br>
-<li>Rota: http://localhost:3333/api/enfermeiros (substitua :id pelo número do ID do enfermeiro)</ul></li> <br>
+<li>Rota: http://localhost:3333/api/enfermeiros (substitua :id pelo número do ID do enfermeiro)</li> </ul><br>
 <ul><li><b>Consulta por ID:</b><br>
 <li>Tipo de rota: GET<br>
-<li>Rota: http://localhost:3333/api/enfermeiros/:id (substitua :id pelo número do ID do enfermeiro)</ul></li></ul><br>
+<li>Rota: http://localhost:3333/api/enfermeiros/:id (substitua :id pelo número do ID do enfermeiro)</li></ul></ul><br>
 
 
 <h3>INFORMAÇÕES PARA DESENVOLVEDORES:<h3>
