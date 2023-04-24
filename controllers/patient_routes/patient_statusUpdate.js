@@ -34,10 +34,7 @@ async function handlePatientStatus(req, res) {
       
     } catch (error) {
       console.error(error);
-      res.status(500).json({
-        message:
-          'Houve um erro interno no servidor. Verifique o caminho e tente novamente.'
-      });
+      res.status(500).json({ message:'Erro interno do servidor. Verifique a rota e tente novamente.'});
     }
   }
 

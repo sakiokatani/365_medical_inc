@@ -14,7 +14,7 @@ async function handleNurseDataAll(req, res){
            
         } catch (error) {
         console.error(error);
-        res.status(500).json({mensagem: 'Erro interno do servidor. Tente novamente mais tarde'});
+        res.status(500).json({mensagem: 'Erro interno do servidor. Verifique a rota e tente novamente'});
     }
 }
 

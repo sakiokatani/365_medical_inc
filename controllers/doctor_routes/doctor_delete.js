@@ -12,7 +12,7 @@ async function handleDeleteDoctor(req, res){
         const findDoctorById = await Doctor.findByPk(req.params.id);
         console.log(findDoctorById);
         if(findDoctorById === null){
-            return res.status(404).json({mensagem: "Não há um médico com este ID"});
+            return res.status(404).json({mensagem: "Cadastro não encontrado. Verifique o ID do médico e tente novamente."});
         } else{ 
 
         await Doctor.destroy(
@@ -27,7 +27,7 @@ async function handleDeleteDoctor(req, res){
         }
     } catch (error) {
         console.error(error);
-        res.status(500).json({mensagem: "Error interno do servidor. Por favor, tente novamente mais tarde."})      
+        res.status(500).json({mensagem: "Erro interno do servidor. Verifique a rota e tente novamente."})      
     }
 };
 

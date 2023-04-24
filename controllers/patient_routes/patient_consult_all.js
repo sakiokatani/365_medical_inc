@@ -27,7 +27,7 @@ async function handlePatientDataAll(req, res){
                 }
         } catch (error) {
                 console.log(error);
-                res.status(500).json({message: 'Internal server error. Try again later'});
+                res.status(500).json({message: 'Erro interno do servidor. Verifique a rota e tente novamente'});
         }
 }
 

@@ -21,6 +21,10 @@ async function handleCreateDoctor(req, res){
             systemStatus: req.body.systemStatus,
             }
 
+        if(!doctorData.full_name || !doctorData. dateOfBirth|| !doctorData.cpf || !doctorData.academicInstitution|| !doctorData. specialization || !doctorData.crmuf ){
+            return res.status(406).json({mensagem: 'Os campos full_name, dateOfBirth, cpf, academicInstitution, specialization e crmuf são obrigatórios para a criação de um cadastro médico.'});
+            }else{
+
         const filterDoctorByCpf = await Doctor.findOne(
             {
                 where:
@@ -38,26 +42,38 @@ async function handleCreateDoctor(req, res){
             }
         )
         
-        if(!doctorData.full_name || !doctorData. dateOfBirth|| !doctorData.cpf || !doctorData. specialization || !doctorData.crmuf ){
-            return res.status(406).json({mensagem: 'Preencha todos os campos obrigatórios'});
-            }
+        
 
         if(filterDoctorByCpf === null && filterDoctorByCrm === null){
+            const allowedGender = Doctor.rawAttributes.gender;
+            if(req.body.gender && !allowedGender.values.includes(req.body.gender)){
+                return res.status(406).json({mensagem:`Entre com um valor válido para gênero: ${allowedGender.values}`})
+            }
+
+            if(req.body.systemStatus && ! Doctor.rawAttributes.systemStatus.values.includes(req.body.systemStatus)){
+                return res.status(406).json({mensagem:`Entre com um status válido: ${Doctor.rawAttributes.systemStatus.values}`})
+            }
+
+            if(req.body.specialization && !Doctor.rawAttributes.specialization.values.includes(req.body.specialization)){
+                return res.status(406).json({mensagem:`Entre com ums especialização válida: ${Doctor.rawAttributes.specialization.values}`})
+            }
+
+
             const newDoctor = await Doctor.create(doctorData);
             return res.status(200).json(newDoctor);
 
         }else if(filterDoctorByCpf !== null){
-            return res.status(409).json({mensagem: 'Este CPF já está cadastrado no sistema'})
+            return res.status(409).json({mensagem: `Este CPF já está cadastrado no sistema sob o medico ${filterDoctorByCrm.full_name}`})
 
         }else if(filterDoctorByCrm !== null){
-            return res.status(409).json({mensagem: 'Este CRM/UF já está cadastrado no sistema'})
+            return res.status(409).json({mensagem: `Este CRM/UF já está cadastrado no sistema sob o medico ${filterDoctorByCrm.full_name}`})
         }
         
-
+    }
                
     } catch (error) {
         console.error(error);
-        res.status(500).json({mensagem: 'Erro interno do servidor. Tente novamente mais tarde'});
+        res.status(500).json({mensagem: 'Erro interno do servidor. Verifique a rota e tente novamente.'});
     }
 }
 

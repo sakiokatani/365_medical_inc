@@ -26,9 +26,9 @@ async function handleCreatePatient(req, res) {
     }
     console.log(patientData)
 
-    if(!patientData.full_name || !patientData.gender || ! patientData.dateOfBirth || !patientData.cpf || !patientData.emergencyContact || !patientData.serviceStatus){
-        return res.status(400).json({mensagem:'Dados inválidos ou incompletos. Preencha corretamente os campos indicados como obrigatórios'});
-    }
+    if(!patientData.full_name ||! patientData.cpf ||! patientData.dateOfBirth || !patientData.emergencyContact || !patientData.serviceStatus){
+        return res.status(400).json({mensagem:'Os campos full_name, cpf, dateOfBirth, emergencyContact e serviceStatus são obrigatórios para a criação de um cadastro'});
+    } else{
 
     const filterPatientsByCpf = await Patient.findOne(
         {
@@ -67,7 +67,7 @@ async function handleCreatePatient(req, res) {
         return res.status(409).json({mensagem:'Conflito na criação de cadastro: CPF já existente no banco de dados.'})
     }
     
-
+    }
  } catch (error) {
     console.error(error);
     res.status(500).json({mensagem:'Patient creation unsuccessful'});

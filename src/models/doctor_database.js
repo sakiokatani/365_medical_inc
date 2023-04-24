@@ -1,7 +1,7 @@
-
-
 const { Sequelize } = require('sequelize');
 const connectSequelize = require ('../database');
+const TotalOfAttendances = require('../models/numberOfAttendedPatients')
+
 
 const Doctor = connectSequelize.define('doctor',{
     id:{
@@ -85,6 +85,7 @@ const Doctor = connectSequelize.define('doctor',{
     
 })
 
+// Doctor.hasMany(TotalOfAttendances, { foreignKey: 'doctor_id' });
 
 module.exports = Doctor;
 

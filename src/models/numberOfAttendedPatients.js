@@ -1,44 +1,47 @@
-const {Sequelize, Model}= require('sequelize')
-const connectSequelize = require('../../src/database');
-        connectSequelize.sync({alter:true});
+// // const {Sequelize}= require('sequelize')
+// // const connectSequelize = require('../../src/database');
+// //         connectSequelize.sync({alter:true})
+//         // .then(() => {
+//         //     console.log('Foreign key constraint changed successfully!');
+//         //   })
+//         //   .catch((error) => {
+//         //     console.error('Error changing foreign key constraint:', error);
+//         //   });
+// const Patient = require('./patient_database');
+// const Doctor = require('./doctor_database');
+// const { Model, DataTypes } = require('sequelize');
 // const sequelize = require('../database');
-const Patient = require('./patient_database');
-const Doctor = require('./doctor_database');
 
+// class NumberOfAttendedPatients extends Model {}
 
+// NumberOfAttendedPatients.init({
+//   id: {
+//     type: DataTypes.INTEGER,
+//     primaryKey: true,
+//     autoIncrement: true,
+//   },
+//   doctorId: {
+//     type: DataTypes.INTEGER,
+//     allowNull: false,
+//     references: {
+//       model: 'doctor_database',
+//       key: 'id',
+//     },
+//   },
+//   total: {
+//     type: DataTypes.INTEGER,
+//     allowNull: false,
+//     defaultValue: 0,
+//   },
+// }, {
+//   sequelize,
+//   modelName: 'NumberOfAttendedPatients',
+// });
 
-const TotalOfAttendances = sequelize.define('totalOfAttendances', {
-    id: {
-        type: Sequelize.INTEGER,
-        autoIncrement: true,
-        primaryKey: true
-    },
+// // Associate the NumberOfAttendedPatients model with the Doctor model
+// NumberOfAttendedPatients.belongsTo(Doctor, {
+//   foreignKey: 'doctorId',
+//   as: 'doctor',
+// });
 
-    doctorId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-          model: Doctor,
-          key: 'id'
-        }
-    },
-
-    patientId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-            model: Patient,
-            key: 'id'
-        }
-    },
-    date: {
-        type: Sequelize.DATEONLY,
-        allowNull: false
-    }
-});
-
-TotalOfAttendances.belongsTo(Patient);
-TotalOfAttendances.belongsTo(Doctor);
-
-
-module.exports = TotalOfAttendances;
+// module.exports = NumberOfAttendedPatients;

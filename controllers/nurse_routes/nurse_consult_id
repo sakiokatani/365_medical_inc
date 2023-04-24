@@ -18,7 +18,7 @@ async function handleNurseDataById(req, res){
         }
         } catch (error) {
         console.error(error);
-        res.status(500).json({mensagem:'Server error'});
+        res.status(500).json({mensagem:'Erro interno do servidor. Verifique a rota e tente novamente.'});
         }
 }
 

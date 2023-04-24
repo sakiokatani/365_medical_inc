@@ -10,13 +10,10 @@ router.use(express.json());
 async function handleDoctorDataAll(req, res){
     try {
         const status = req.query.status;
-        const allowedStatus = [
-            'ATIVO',
-            'INATIVO'
-        ]
+        const allowedStatus = Doctor.rawAttributes.systemStatus;
 
-        if(!allowedStatus.includes(status)){
-            return res.status(400).json({mensagem: `status permitidos: ${allowedStatus}`})
+        if(!allowedStatus.values.includes(status)){
+            return res.status(400).json({mensagem: `Insira um status permitido na requisição: ${allowedStatus.values}`})
         }
 
         if(status){
@@ -28,9 +25,10 @@ async function handleDoctorDataAll(req, res){
                 }
             }
             );
-            const listDoctorsByStatus = findDoctorsByStatus.map(({id, full_name, specialization})=>({
+            const listDoctorsByStatus = findDoctorsByStatus.map(({id, full_name, phoneNumber,specialization})=>({
                 id,
                 full_name,
+                phoneNumber,
                 specialization
                 }
             ));
@@ -46,7 +44,7 @@ async function handleDoctorDataAll(req, res){
        
     } catch (error) {
         console.error(error);
-        res.status(500).json({mensagem: 'Erro interno do servidor. Tente novamente mais tarde'});
+        res.status(500).json({mensagem: 'Erro interno do servidor. Verifique a rota e tente novamente.'});
     }
 }
 

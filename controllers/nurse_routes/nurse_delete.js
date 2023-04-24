@@ -27,13 +27,13 @@ async function handleDeleteNurse(req, res){
                 //PRGUNTA PRA CORREÇÃO: PQ NÃO FUNCIONA SEM O JSON COM RES.STATUS(204) - NÃO RETORNA RESPOSTA,
                 // MAS FUNCIONA 204 COM JSON E 2000 COM JSON NORMALMENTE
         } else{
-            return res.status(404).json({mensagem: "Cadastro não encontrado"});
+            return res.status(404).json({mensagem: "Cadastro não encontrado. Verifique o ID do enfermeiro e tente novamente."});
 
         }
         
     }catch(error){
         console.error(error);
-        res.status(500);
+        res.status(500).json({mensagem: "Erro interno do servidor. Verifique a rota e tente novamente."});
     }
 }
 
