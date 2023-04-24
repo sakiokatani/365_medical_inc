@@ -30,25 +30,25 @@ A Proposta do projeto avaliativo consiste na construção do API através de Exp
 <h3><b>COMO REALIZAR OPERAÇÕES NO BANCO DE DADOS</b></h3>
 A modificação do banco de dados deve ser feita através de IDEs de requisição a APis como Postman ou Insomnia, seguindo as sequintes rotas:
 <br>
-<h4><b>Para pacientes:</b></h4><br>
-<b>Criação de novos cadastros:</b><br>
-Tipo de rota: POST<br>
-Rota: http://localhost:3333/api/pacientes <br>
-<b>Atualização de castro:</b><br>
-Tipo de rota: PUT<br>
-Rota: http://localhost:3333/api/pacientes/:id (substitua :id pelo número do ID do paciente)<br>
-<b>Atualização de status:</b><br>
-Tipo de rota: PUT<br>
-Rota: http://localhost:3333/api/pacientes/:id/status (substitua :id pelo número do ID do paciente)<br>
-<b>Deleção de cadastro:</b><br>
-Tipo de rota: DELETE<br>
-Delete: http://localhost:3333/api/pacientes/:id (substitua :id pelo número do ID do paciente)
-<b>Consulta geral:</b><br>
-Tipo de rota: GET<br>
-Rota: http://localhost:3333/api/pacientes (substitua :id pelo número do ID do paciente)
-<b>Consulta por ID:</b><br>
-Tipo de rota: GET<br>
-Rota: http://localhost:3333/api/pacientes/:id (substitua :id pelo número do ID do paciente)<br>
+<ul><h4><b>Para pacientes:</b></h4><br>
+<ul><b>Criação de novos cadastros:</b><br>
+<li>Tipo de rota: POST<br></li>
+<li>Rota: http://localhost:3333/api/pacientes </li></ul><br>
+<ul><b>Atualização de castro:</b><br>
+<li>Tipo de rota: PUT<br></li>
+<li>Rota: http://localhost:3333/api/pacientes/:id (substitua :id pelo número do ID do paciente)</li><ul><br>
+<li><b>Atualização de status:</b><br>
+<li>Tipo de rota: PUT<br>
+<li>Rota: http://localhost:3333/api/pacientes/:id/status (substitua :id pelo <li>número do ID do paciente)<br>
+<li><b>Deleção de cadastro:</b><br>
+<li>Tipo de rota: DELETE<br>
+<li>Delete: http://localhost:3333/api/pacientes/:id (substitua :id pelo <li>número do ID do paciente)
+<li><b>Consulta geral:</b><br>
+<li>Tipo de rota: GET<br>
+<li>Rota: http://localhost:3333/api/pacientes (substitua :id pelo número do ID do paciente)
+<li><b>Consulta por ID:</b><br>
+<li>Tipo de rota: GET<br>
+<li>Rota: http://localhost:3333/api/pacientes/:id (substitua :id pelo número do ID do paciente)<br><ul>
 <br>
 <h4><b>Para Médicos:</b></h4><br>
 <b>Criação de novos cadastros:</b><br>
