@@ -52,7 +52,7 @@ A modificação do banco de dados deve ser feita através de APIs de requisiçã
 <li>Delete: http://localhost:3333/api/pacientes/:id (substitua :id pelo <li>número do ID do paciente)</ul></li><br>
 <ul><li><b>Consulta geral:</b><br>
 <li>Tipo de rota: GET<br>
-<li>Rota: http://localhost:3333/api/pacientes (substitua :id pelo número do ID do paciente)</ul></li> <br>
+<li>Rota: http://localhost:3333/api/pacientes (substitua :id pelo número do ID do paciente)</li> <br>
 <li>Rota: http://localhost:3333/api/pacientes?status (substitua <i>:id</i> pelo número do ID do paciente e <i>?status</i> por ?status=<status atual>)</ul></li> <br>
 <ul><li><b>Consulta por ID:</b><br>
 <li>Tipo de rota: GET<br>
@@ -74,7 +74,7 @@ A modificação do banco de dados deve ser feita através de APIs de requisiçã
 <li>Delete: http://localhost:3333/api/medicos/:id (substitua :id pelo <li>número do ID do medico)</ul></li><br>
 <ul><li><b>Consulta geral:</b><br>
 <li>Tipo de rota: GET<br>
-<li>Rota: http://localhost:3333/api/medicos (substitua :id pelo número do ID do medico)</ul></li> <br>
+<li>Rota: http://localhost:3333/api/medicos (substitua :id pelo número do ID do medico)</li> <br>
 <li>Rota: http://localhost:3333/api/medicos?status (substitua <i>:id</i> pelo número do ID do medico e <i>?status</i> por ?status=<status atual>)</li></ul> <br>
 <ul><li><b>Consulta por ID:</b><br>
 <li>Tipo de rota: GET<br>
@@ -94,7 +94,7 @@ A modificação do banco de dados deve ser feita através de APIs de requisiçã
 <li>Tipo de rota: DELETE<br>
 <li>Delete: http://localhost:3333/api/enfermeiros/:id (substitua :id pelo <li>número do ID do enfermeiro)</ul></li><br>
 <ul><li><b>Consulta geral:</b><br>
-<li>Tipo de rota: GET<br>
+<li>Tipo de rota: GET</li><br>
 <li>Rota: http://localhost:3333/api/enfermeiros (substitua :id pelo número do ID do enfermeiro)</li> </ul><br>
 <ul><li><b>Consulta por ID:</b><br>
 <li>Tipo de rota: GET<br>
