@@ -21,6 +21,7 @@ const Attendance = connectSequelize.define('attendance', {
         type: Sequelize.INTEGER,
         allowNull: false,
         defaultValue: 0,
+        
       },
 
     },    
@@ -28,7 +29,6 @@ const Attendance = connectSequelize.define('attendance', {
 
 Attendance.prototype.incrementTotal = async function () {
   this.total = this.total + 1;
-  await this.save();
 }
 
 Attendance.associate = function(models) {
