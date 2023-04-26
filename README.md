@@ -7,7 +7,7 @@ A Proposta do projeto avaliativo consiste na construção do API através de Exp
 
 <h3>Tecnologias utilizadas</h3>
 
-<ul><b>Linguagem:</b>br>
+<ul><b>Linguagem:</b><br>
 <il>JavaScript</il></ul><br>
 
 <ul><b>Frameworks:</b><br>
