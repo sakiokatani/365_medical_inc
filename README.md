@@ -110,7 +110,7 @@ O projeto Saúde 360 foi separado em módulos e pastas, seguindo a seguinte orga
 <ul>
 <li><b>Controllers:</b> Contém todas as funções assícronas para execução das requisições, agrupadas em pastas por suas respectivas classes.</li>
 <ul><li><b>src:</b></li><br>
-<li><b>datbase:</b> contém as definições de conexão com a database do pgAdmin</li><br>
+<li><b>database:</b> contém as definições de conexão com a database do pgAdmin</li><br>
 <li><b>models: </b>contém os modelos de cada classe trabalhada</li><br>
 <li><b>routes:</b>contém todas as rotas utilizadas pela api, separados em arquivos por classe</li></ul><br>
 <li><b>index.js: contém a conexão de todos os routers com a rota raiz e a porta de conexão dos mesmos</b></li><br>
