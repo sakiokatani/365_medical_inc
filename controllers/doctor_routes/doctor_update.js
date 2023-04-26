@@ -156,10 +156,10 @@ async function handleUpdateDoctor(req, res){
                 dateOfBirth: DoctorById.dateOfBirth,
                 cpf: DoctorById.cpf,
                 phoneNumber: DoctorById.phoneNumber,
-                emergencyContact: DoctorById.academicInstitution,
-                allergyList: DoctorById.crmuf,
-                specialCareList: DoctorById.specialization,
-                healthInsurance: DoctorById.systemStatus});
+                academicInstitution: DoctorById.academicInstitution,
+                crmuf: DoctorById.crmuf,
+                specialization: DoctorById.specialization,
+                systemStatus: DoctorById.systemStatus});
                 }
 
                 if (uptodate) {
@@ -171,10 +171,10 @@ async function handleUpdateDoctor(req, res){
                 dateOfBirth: DoctorById.dateOfBirth,
                 cpf: DoctorById.cpf,
                 phoneNumber: DoctorById.phoneNumber,
-                emergencyContact: DoctorById.academicInstitution,
-                allergyList: DoctorById.crmuf,
-                specialCareList: DoctorById.specialization,
-                healthInsurance: DoctorById.systemStatus});
+                academicInstitution: DoctorById.academicInstitution,
+                crmuf: DoctorById.crmuf,
+                specialization: DoctorById.specialization,
+                systemStatus: DoctorById.systemStatus});
 
                 }
                 }

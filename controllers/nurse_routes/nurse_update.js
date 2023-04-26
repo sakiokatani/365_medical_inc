@@ -18,14 +18,14 @@ async function handleUpdateNurse(req, res){
             
             if(
                 req.body.id === null||
-                NurseById.id !== req.body.id ||
-                NurseById.full_name !== req.body.full_name ||
-                NurseById.gender!== req.body.gender ||
-                NurseById.dateOfBirth!==req.body.dateOfBirth ||
-                NurseById.cpf!== req.body.cpf ||
-                NurseById.phoneNumber!==req.body.phoneNumber ||
-                NurseById.academicInstitution !== req.body.academicInstitution,
-                NurseById.cofenuf !== req.body.cofenuf
+                req.body.id ||
+                req.body.full_name ||
+                req.body.gender ||
+                req.body.dateOfBirth ||
+                req.body.cpf ||
+                req.body.phoneNumber ||
+                req.body.academicInstitution,
+                req.body.cofenuf
             ){
                 
                 let updatedAttributes = [];
@@ -89,29 +89,66 @@ async function handleUpdateNurse(req, res){
 
                     };
                     // const separator = ", "
-                console.log(updated);
-                if(updated){
+                    let uptodate = false;
+                    const uptdateData = [];
+    
+                    if (req.body.full_name && NurseById.full_name === req.body.full_name) {
+                    uptodate = true;
+    
+                    }
+                    if (req.body.gender && NurseById.gender === req.body.gender) {
+                        uptodate= true;
+                    }
+                    if (req.body.dateOfBirth&& NurseById.dateOfBirth === req.body.dateOfBirth) {
+                        uptodate= true;
+                    }
+                    if (req.body.phoneNumber && NurseById.phoneNumber === req.body.phoneNumber) {
+                        uptodate = true;
+                    }
+                    if (req.body.cpf && NurseById.cpf === req.body.cpf) {
+                        uptodate = true;
+                    }
+                    if (req.body.academicInstitution && NurseById.academicInstitution === req.body.academicInstitution) {
+                        uptodate = true;
+                    }
+                    if (req.body.cofenuf && NurseById.cofenuf === req.body.cofenuf) {
+                        uptodate = true;
+                    }
+                    
+                    
+                    
+                    if(updated){
                     updatedAttributes = updatedAttributes.join( ", ")
                     
                     console.log(updatedAttributes)
-                    return res.status(200).json({mensagem: `Os seguintes dados foram atualizados: ${updatedAttributes}`});
+                    return res.status(200).json({mensagem: `Os seguintes dados foram atualizados: ${updatedAttributes}`,
+                    id: NurseById.id,
+                    full_name: NurseById.full_name,
+                    gender: NurseById.gender,
+                    dateOfBirth: NurseById.dateOfBirth,
+                    cpf: NurseById.cpf,
+                    phoneNumber: NurseById.phoneNumber,
+                    academicInstitution: NurseById.academicInstitution,
+                    cofenuf: NurseById.cofenuf,
+});
+                    }
+    
+                    if (uptodate) {
+                    return res.status(409).json({
+                    mensagem: `Os dados do endermeiro ${NurseById.full_name}  já estão atualizados.`,
+                    id: NurseById.id,
+                    full_name: NurseById.full_name,
+                    gender: NurseById.gender,
+                    dateOfBirth: NurseById.dateOfBirth,
+                    cpf: NurseById.cpf,
+                    phoneNumber: NurseById.phoneNumber,
+                    academicInstitution: NurseById.academicInstitution,
+                    cofenuf: NurseById.cofenuf,
+      });
+    
+                    }
+                    }
                 }
-            }else if(req.body.id && NurseById.id !== req.body.id){
-                res.status(403).json({mensagem: "Não é permitido mudar o ID no sistema manualmente."})
-            
-            }else{
-                return res.status(406).json({mensagem:`Todos os dados do enfermeiro ${NurseById.full_name} já estão atualizados. Cadastro: `,
-                full_name : NurseById.full_name,
-                gender: NurseById.gender,
-                dateOfBirth: NurseById.dateOfBirth,
-                cpf: NurseById.cpf,
-                phoneNumber: NurseById.phoneNumber,
-                academicInstitution: req.body.academicInstitution,
-                cofenuf : req.body.cofenuf
-            });
-            }   
-            
-        }
     }catch(error){
         console.error(error)
         res.status(500).json({mensagem:'Erro interno do servidor. Verifique a rota e tente novamente.'});
