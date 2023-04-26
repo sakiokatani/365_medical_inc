@@ -16,22 +16,21 @@ async function handleUpdatePatient(req, res){
         }else if (patientInDatabase){
             
             if(
-                req.body.id === null||
-                patientInDatabase.full_name !== req.body.full_name ||
-                patientInDatabase.gender!== req.body.gender ||
-                patientInDatabase.dateOfBirth!==req.body.dateOfBirth ||
-                patientInDatabase.cpf!== req.body.cpf ||
-                patientInDatabase.phoneNumber!==req.body.phoneNumber ||
-                patientInDatabase.emergencyContact!==req.body.emergencyContact||
-                patientInDatabase.alllergyList!== req.body.alllergyList ||
-                patientInDatabase.specialCareList!== req.body.specialCareList||
-                patientInDatabase.healthInsurance!==req.body.healthInsurance ||
-                patientInDatabase.serviceStatus!==req.body.serviceStatus
-            ){
+                    !req.body.id ||
+                    req.body.full_name ||
+                    req.body.gender ||
+                    req.body.dateOfBirth ||
+                    req.body.cpf ||
+                    req.body.phoneNumber ||
+                    req.body.emergencyContact||
+                    req.body.alllergyList ||
+                    req.body.specialCareList||
+                    req.body.healthInsurance ||
+                    req.body.serviceStatus) {
                 
                 let updatedAttributes = [];
                 let updated = false;
-
+                
 
                 if(req.body.full_name && patientInDatabase.full_name !== req.body.full_name){
                     patientInDatabase.full_name= req.body.full_name;
@@ -47,7 +46,7 @@ async function handleUpdatePatient(req, res){
                     updatedAttributes.push( `Gênero: ${patientInDatabase.gender}`);
                     updated = true;
                     }else{
-                        res.status(406).json({mensagem:`Favor inserir um status válido: ${Patient.rawAttributes.gender.values}`})
+                        return res.status(406).json({mensagem:`Favor inserir um status válido: ${Patient.rawAttributes.gender.values}`})
                     }
                 };
                     
@@ -82,8 +81,8 @@ async function handleUpdatePatient(req, res){
 
                 };
 
-                if(req.body.alllergyList && patientInDatabase.alllergyList!== req.body.alllergyList){
-                    patientInDatabase.alllergyList = req.body.alllergyList;
+                if(req.body.allergyList && patientInDatabase.allergyList!== req.body.allergyList){
+                    patientInDatabase.allergyList = req.body.allergyList;
                     await patientInDatabase.save();
                     updatedAttributes.push(`Alergias: ${patientInDatabase.alllergyList}`);
                     updated = true;
@@ -114,42 +113,90 @@ async function handleUpdatePatient(req, res){
                         updatedAttributes.push(`Status do Serviço: ${patientInDatabase.serviceStatus}`);
                         updated = true;
                     }else{
-                        res.status(406).json({mensagem:`Favor inserir um status válido: ${Patient.rawAttributes.serviceStatus.values}`})
+                        return res.status(406).json({mensagem:`Favor inserir um status válido: ${Patient.rawAttributes.serviceStatus.values}`})
                     }
                     
                 };
-                    // const separator = ", "
-                console.log(updated);
-                if(updated){
-                    updatedAttributes = updatedAttributes.join( ", ")
-                    
-                    console.log(updatedAttributes)
-                    return res.status(200).json({mensagem: `Os seguintes dados foram atualizados: ${updatedAttributes}`});
-                }
 
-                }else if(req.body.id && patientInDatabase.id !== req.body.id){
-                    res.status(403).json({mensagem: "Não é permitido mudar o ID no sistema manualmente."})
+                let uptodate = false;
+                const uptdateData = [];
+
+                if (req.body.full_name && patientInDatabase.full_name === req.body.full_name) {
+                uptodate = true;
+
+                }
+                if (req.body.gender && patientInDatabase.gender === req.body.gender) {
+                    uptodate= true;
+                }
+                if (req.body.dateOfBirth&& patientInDatabase.dateOfBirth === req.body.dateOfBirth) {
+                    uptodate= true;
+                }
+                if (req.body.phoneNumber && patientInDatabase.phoneNumber === req.body.phoneNumber) {
+                    uptodate = true;
+                }
+                if (req.body.cpf && patientInDatabase.cpf === req.body.cpf) {
+                    uptodate = true;
+                }
+                if (req.body.emergencyContact && patientInDatabase.emergencyContact === req.body.emergencyContact) {
+                    uptodate = true;
+                }
+                if (req.body.allergyList && patientInDatabase.allergyList === req.body.allergyList) {
+                    uptodate = true;
+                }
+                if (req.body.specialCareList && patientInDatabase.specialCareList === req.body.specialCareList) {
+                    uptodate = true;
+                }
+                if (req.body.healthInsurance && patientInDatabase.healthInsurance === req.body.healthInsurance) {
+                    uptodate = true;
+                }
+                if (req.body.serviceStatus && patientInDatabase.serviceStatus === req.body.serviceStatus) {
+                    uptodate = true;
+                }
                 
-                }else{
-                return res.status(409).json({mensagem:`Todos os dados do paciente ${patientInDatabase.full_name} já estão atualizados. Cadastro: `,
+                if(updated){
+                updatedAttributes = updatedAttributes.join( ", ")
+                
+                console.log(updatedAttributes)
+                return res.status(200).json({mensagem: `Os seguintes dados foram atualizados: ${updatedAttributes}`,
                 id: patientInDatabase.id,
-                full_name : patientInDatabase.full_name,
+                full_name: patientInDatabase.full_name,
                 gender: patientInDatabase.gender,
                 dateOfBirth: patientInDatabase.dateOfBirth,
                 cpf: patientInDatabase.cpf,
                 phoneNumber: patientInDatabase.phoneNumber,
                 emergencyContact: patientInDatabase.emergencyContact,
-                allergyList: patientInDatabase.alllergyList,
-                specialCAreList: patientInDatabase.specialCareList,
+                allergyList: patientInDatabase.allergyList,
+                specialCareList: patientInDatabase.specialCareList,
                 healthInsurance: patientInDatabase.healthInsurance,
-                serviceStatus:patientInDatabase.serviceStatus});
-            }   
-            
-        }
-    }catch(error){
-        console.error(error)
-        res.status(500).json({mensagem:'Erro interno do Servidor. Verifique a rota e tente novamente.'});
-    }
-}
+                serviceStatus: patientInDatabase.serviceStatus});
+                }
 
-module.exports = {handleUpdatePatient};
+                if (uptodate) {
+                return res.status(409).json({
+                // const separator = ", "
+                mensagem: `Os dados do paciente ${patientInDatabase.full_name}  já estão atualizados.`,
+                id: patientInDatabase.id,
+                full_name: patientInDatabase.full_name,
+                gender: patientInDatabase.gender,
+                dateOfBirth: patientInDatabase.dateOfBirth,
+                cpf: patientInDatabase.cpf,
+                phoneNumber: patientInDatabase.phoneNumber,
+                emergencyContact: patientInDatabase.emergencyContact,
+                allergyList: patientInDatabase.allergyList,
+                specialCareList: patientInDatabase.specialCareList,
+                healthInsurance: patientInDatabase.healthInsurance,
+                serviceStatus: patientInDatabase.serviceStatus})
+
+                }
+                }
+            }
+            
+                        
+             
+                }catch(error){
+                    console.error(error)
+                    res.status(500).json({mensagem:'Erro interno do Servidor. Verifique a rota e tente novamente.'});
+                }
+            }
+        
+        module.exports = {handleUpdatePatient}
