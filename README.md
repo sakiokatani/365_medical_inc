@@ -71,16 +71,16 @@ A modificação do banco de dados deve ser feita através de APIs de requisiçã
 <li>Rota: http://localhost:3333/api/medicos/:id/status (substitua :id pelo <li>número do ID do medico)</ul><br>
 <ul><li><b>Deleção de cadastro:</b><br>
 <li>Tipo de rota: DELETE<br>
-<li>Delete: http://localhost:3333/api/medicos/:id (substitua :id pelo <li>número do ID do medico)</ul><br></li>
+<li>Delete: http://localhost:3333/api/medicos/:id (substitua :id pelo número do ID do medico)</ul><br></li>
 <ul><li><b>Consulta geral:</b><br>
 <li>Tipo de rota: GET<br>
-<li>Rota: http://localhost:3333/api/medicos (substitua :id pelo número do ID do medico)</li> <br>
+<li>Rota: http://localhost:3333/api/medicos (substitua :id pelo número do ID do medico)<br></li>
 <li>Rota: http://localhost:3333/api/medicos?status (substitua <i>:id</i> pelo número do ID do medico e <i>?status</i> por ?status=<status atual>)</li></ul> <br>
 <ul><li><b>Consulta por ID:</b><br>
 <li>Tipo de rota: GET<br>
 <li>Rota: http://localhost:3333/api/medicos/:id (substitua :id pelo número do ID do medico)</li></ul></ul><br>
 
-<br>
+
 <ul><h4><b>Para Enfermeiros:</b></h4><br>
 <ul><b>Criação de novos cadastros:</b><br>
 <li>Tipo de rota: POST<br></li>
@@ -90,12 +90,13 @@ A modificação do banco de dados deve ser feita através de APIs de requisiçã
 <li>Rota: http://localhost:3333/api/enfermeiros/:id (substitua :id pelo número do ID do enfermeiro)</li></ul><br>
 <ul><li><b>Atualização de status:</b><br>
 <li>Tipo de rota: PUT<br>
+<li>Rota: http://localhost:3333/api/enfermeiros/:id/status (substitua :id pelonúmero do ID do enfermeiro)</ul><br>
 <ul><li><b>Deleção de cadastro:</b><br>
 <li>Tipo de rota: DELETE<br>
-<li>Delete: http://localhost:3333/api/enfermeiros/:id (substitua :id pelo <li>número do ID do enfermeiro)</ul><br></li>
+<li>Delete: http://localhost:3333/api/enfermeiros/:id (substitua :id pelo número do ID do enfermeiro)</ul><br></li>
 <ul><li><b>Consulta geral:</b><br>
-<li>Tipo de rota: GET<br></li>
-<li>Rota: http://localhost:3333/api/enfermeiros (substitua :id pelo número do ID do enfermeiro)</li> </ul><br>
+<li>Tipo de rota: GET<br>
+<li>Rota: http://localhost:3333/api/enfermeiros (substitua :id pelo número do ID do enfermeiro)</li></ul> <br>
 <ul><li><b>Consulta por ID:</b><br>
 <li>Tipo de rota: GET<br>
 <li>Rota: http://localhost:3333/api/enfermeiros/:id (substitua :id pelo número do ID do enfermeiro)</li></ul></ul><br>
