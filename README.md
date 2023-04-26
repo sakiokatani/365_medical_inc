@@ -106,7 +106,15 @@ A modificação do banco de dados deve ser feita através de APIs de requisiçã
 
 <h3>INFORMAÇÕES PARA DESENVOLVEDORES:<h3>
 
-//estruturação em módulos e pastas, seguindo a estrutura:
+O projeto Saúde 360 foi separado em módulos e pastas, seguindo a seguinte organização:
+<ul>
+<li><b>Controllers:</b> Contém todas as funções assícronas para execução das requisições, agrupadas em pastas por suas respectivas classes.</li>
+<ul><li><b>src:</b></li><br>
+<li><b>datbase:</b> contém as definições de conexão com a database do pgAdmin</li><br>
+<li><b>models: </b>contém os modelos de cada classe trabalhada</li><br>
+<li><b>routes:</b>contém todas as rotas utilizadas pela api, separados em arquivos por classe</li></ul><br>
+<li><b>index.js: contém a conexão de todos os routers com a rota raiz e a porta de conexão dos mesmos</b></li><br>
+<li><b>.gitignore: </b>no momento, contém apenas o node_modules</li><br>
+</ul>
 
-//o que ainda falta implementar: colocar nome completo na tabela de attendances ao relacionar médico e paciente
-//implementação de consulta por nome, não apenas id
+ATENÇÂO: ESTE CÓDIGO NÃO CONTÉM MUITOS COMENTÁRIOS. As variáveis foram pensadas para que fossem autoexplicativas dentro do código.
