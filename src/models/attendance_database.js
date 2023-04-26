@@ -33,7 +33,7 @@ Attendance.prototype.incrementTotal = async function () {
 
 Attendance.associate = function(models) {
     Attendance.belongsTo(models.Doctor, { foreignKey: 'doctorId' });
-    Attendance.belongsTo(models.Doctor, { foreignKey: 'patientId' });
+    Attendance.belongsTo(models.Patient, { foreignKey: 'patientId' });
     };
 
     module.exports = Attendance;

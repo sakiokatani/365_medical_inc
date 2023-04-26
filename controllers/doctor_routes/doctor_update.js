@@ -14,19 +14,19 @@ async function handleUpdateDoctor(req, res){
         if(!DoctorById){
             return res.status(400).json({message: 'Dados inválidos. Verifique o ID do médico e tente novamente.'})
             
-        }else if (DoctorById !== null){
+        }else if (DoctorById){
            
            if(
-               req.body.id === null||
-               DoctorById.full_name !== req.body.full_name ||
-               DoctorById.gender!== req.body.gender ||
-               DoctorById.dateOfBirth!==req.body.dateOfBirth ||
-               DoctorById.cpf!== req.body.cpf ||
-               DoctorById.phoneNumber!==req.body.phoneNumber ||
-               DoctorById.academicInstitution!==req.body.academicInstitution||
-               DoctorById.crmuf!== req.body.crmuf ||
-               DoctorById.specialization!== req.body.specialization||
-               DoctorById.systemStatus!==req.body.systemStatus
+               
+               req.body.full_name ||
+               req.body.gender ||
+               req.body.dateOfBirth ||
+               req.body.cpf ||
+               req.body.phoneNumber ||
+               req.body.academicInstitution||
+               req.body.crmuf ||
+               req.body.specialization||
+               req.body.systemStatus
            ){
                
                 let updatedAttributes = [];
@@ -111,37 +111,81 @@ async function handleUpdateDoctor(req, res){
                     }
                     
                 };
-                    // const separator = ", "
-                console.log(updated);
-                if(updated){
-                    updatedAttributes = updatedAttributes.join( ", ")
-                    
-                    console.log(updatedAttributes)
-                    return res.status(200).json({mensagem: `Os seguintes dados foram atualizados para o médico ${DoctorById.full_name}: ${updatedAttributes}`});
-                }
             
-            }else if(req.body.id && DoctorById.id!== req.body.id){
-                res.status(403).json({mensagem: "Não é permitido mudar o ID no sistema manualmente."})
-             
-            }else{
-                return res.status(406).json({mensagem:`Todos os dados do médico ${DoctorById.full_name} já estão atualizados. Cadastro: `,
+                let uptodate = false;
+                const uptdateData = [];
+
+                if (req.body.full_name && DoctorById.full_name === req.body.full_name) {
+                uptodate = true;
+
+                }
+                if (req.body.gender && DoctorById.gender === req.body.gender) {
+                    uptodate= true;
+                }
+                if (req.body.dateOfBirth&& DoctorById.dateOfBirth === req.body.dateOfBirth) {
+                    uptodate= true;
+                }
+                if (req.body.phoneNumber && DoctorById.phoneNumber === req.body.phoneNumber) {
+                    uptodate = true;
+                }
+                if (req.body.cpf && DoctorById.cpf === req.body.cpf) {
+                    uptodate = true;
+                }
+                if (req.body.academicInstitution && DoctorById.academicInstitution === req.body.academicInstitution) {
+                    uptodate = true;
+                }
+                if (req.body.crmuf && DoctorById.crmuf === req.body.crmuf) {
+                    uptodate = true;
+                }
+                if (req.body.specialization && DoctorById.specialization === req.body.specialization) {
+                    uptodate = true;
+                }
+                if (req.body.systemStatus && DoctorById.systemStatus === req.body.systemStatus) {
+                    uptodate = true;
+                }
+                
+                
+                if(updated){
+                updatedAttributes = updatedAttributes.join( ", ")
+                
+                console.log(updatedAttributes)
+                return res.status(200).json({mensagem: `Os seguintes dados foram atualizados: ${updatedAttributes}`,
                 id: DoctorById.id,
-                full_name : DoctorById.full_name,
+                full_name: DoctorById.full_name,
                 gender: DoctorById.gender,
                 dateOfBirth: DoctorById.dateOfBirth,
                 cpf: DoctorById.cpf,
                 phoneNumber: DoctorById.phoneNumber,
-                academicInstitution: DoctorById.academicInstitution,
+                emergencyContact: DoctorById.academicInstitution,
                 allergyList: DoctorById.crmuf,
-                specialization: DoctorById.specialization,
-                systemStatus:DoctorById.systemStatus});
+                specialCareList: DoctorById.specialization,
+                healthInsurance: DoctorById.systemStatus});
+                }
+
+                if (uptodate) {
+                return res.status(409).json({
+                mensagem: `Os dados do médico ${DoctorById.full_name}  já estão atualizados.`,
+                id: DoctorById.id,
+                full_name: DoctorById.full_name,
+                gender: DoctorById.gender,
+                dateOfBirth: DoctorById.dateOfBirth,
+                cpf: DoctorById.cpf,
+                phoneNumber: DoctorById.phoneNumber,
+                emergencyContact: DoctorById.academicInstitution,
+                allergyList: DoctorById.crmuf,
+                specialCareList: DoctorById.specialization,
+                healthInsurance: DoctorById.systemStatus});
+
+                }
+                }
             }
-        }  
-    
-        
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({message: 'Error interno do servidor. Por favor, tente novamente mais tarde'});
-    }
-}
+            
+                        
+             
+                }catch(error){
+                    console.error(error)
+                    res.status(500).json({mensagem:'Erro interno do Servidor. Verifique a rota e tente novamente.'});
+                }
+            }
+
 module.exports = { handleUpdateDoctor };
