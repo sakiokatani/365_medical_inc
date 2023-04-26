@@ -1,7 +1,7 @@
-# 365_medical_inc
+# Saude 360
 
-<h3><b>O QUE É O 365 MEDICAL INC?</b></h3>
-365 Medical Inc é um RestfulAPI construído como projeto avaliativo do Módulo 1 do curso de Full Stack Development do SENAI-SC, em parceria com o projeto Floripa Mais Tec da pregeitura de Florianópolis-SC e a instituição de ensino LaABA365. <br>
+<h3><b>O QUE É SAÚDE 360?</b></h3>
+SAÚDE 360 um RestfulAPI construído como projeto avaliativo do Módulo 1 do curso de Full Stack Development do SENAI-SC, em parceria com o projeto Floripa Mais Tec da pregeitura de Florianópolis-SC e a instituição de ensino LaABA365. <br>
 A Proposta do projeto avaliativo consiste na construção do API através de Express Node.js e Sequelize com postgreSQL, visando efetuar cadastro, atualização e deleção de pacientes, médicos e enfermeiros, a fim de facilitar o processo de consultas e modificação do banco de dados de uma clínica médica ou hospital.<br>
 <br>
 
