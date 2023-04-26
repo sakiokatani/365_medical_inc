@@ -7,13 +7,13 @@ A Proposta do projeto avaliativo consiste na construção do API através de Exp
 
 <h3>Tecnologias utilizadas</h3>
 
-<ul>Linguagem:
-<il>JavaScript</il></ul>
+<ul><b>Linguagem:</b>br>
+<il>JavaScript</il></ul><br>
 
-<ul>Frameworks
-<il>Express</il>
-<il>OMR Sequelize</il>
-<il>Node.js</il></ul>>
+<ul><b>Frameworks:</b><br>
+<il>Express</il><br>
+<il>OMR Sequelize</il><br>
+<il>Node.js</il></ul><br>
 
 <h3>Requisitos:</h3>
 <ul><li>IDE de desenvolvimento de web/software(VSCode, Atom, etc)</li>
@@ -29,8 +29,10 @@ A Proposta do projeto avaliativo consiste na construção do API através de Exp
 <li>Inicialize o node com o comando <i>npm init</i></li> 
 <li>Instale o Express: <i>npm install express</i></li>
 <li>Instale o Sequelize e o postgre: <i>npm install sequelize pg pg-hstore</i></li>
-<li>Instale o nodemon: <i>npm install nodemon</i></li></ul>
+<li>Instale o Nodemon: <i>npm install nodemon</i></li></ul>
 <li>Inicialize o projeto: <i>npm start</i></li></ul>
+
+<h5>ATENÇÃO: caso não deseje instalar o nodemon, o package.json deve ter o seu sript modificado na linha "start": "nodemon indez.js" para "start": "node index.js". Todavia, fazendo essa modificação, será necessário inicializar o sistema a cada requisição enviada.</h5>
 
 <br>
 <h3><b>COMO REALIZAR OPERAÇÕES NO BANCO DE DADOS</b></h3>
@@ -105,5 +107,6 @@ A modificação do banco de dados deve ser feita através de APIs de requisiçã
 <h3>INFORMAÇÕES PARA DESENVOLVEDORES:<h3>
 
 //estruturação em módulos e pastas, seguindo a estrutura:
+
 //o que ainda falta implementar: colocar nome completo na tabela de attendances ao relacionar médico e paciente
 //implementação de consulta por nome, não apenas id
