@@ -22,7 +22,7 @@ async function handlePatientStatus(req, res) {
         return res.status(400).json({message: `Favor inserir um status válido para paciente: ${Patient.rawAttributes.serviceStatus.values}`});
       
       }else if(patientInDatabase.serviceStatus === newServiceStatus && Patient.rawAttributes.serviceStatus.values.includes(newServiceStatus)){
-        return res.status(200).json({message: `Status de Servço já é ${newServiceStatus} para paciente ${patientInDatabase.full_name}`});
+        return res.status(409).json({message: `Status de Servço já é ${newServiceStatus} para paciente ${patientInDatabase.full_name}`});
       
       }else{
         patientInDatabase.serviceStatus = newServiceStatus;

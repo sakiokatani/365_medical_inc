@@ -173,7 +173,6 @@ async function handleUpdatePatient(req, res){
 
                 if (uptodate) {
                 return res.status(409).json({
-                // const separator = ", "
                 mensagem: `Os dados do paciente ${patientInDatabase.full_name}  já estão atualizados.`,
                 id: patientInDatabase.id,
                 full_name: patientInDatabase.full_name,

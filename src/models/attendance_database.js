@@ -22,9 +22,14 @@ const Attendance = connectSequelize.define('attendance', {
         allowNull: false,
         defaultValue: 0,
       },
-    }
 
+    },    
 );
+
+Attendance.prototype.incrementTotal = async function () {
+  this.total = this.total + 1;
+  await this.save();
+}
 
 Attendance.associate = function(models) {
     Attendance.belongsTo(models.Doctor, { foreignKey: 'doctorId' });

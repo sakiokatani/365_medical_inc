@@ -38,13 +38,14 @@ async function totalOfAttendance(req, res){
 
         attendancePatient.serviceStatus = 'ATENDIDO';
         attendancePatient.totalOfAttendances = attendancePatient.totalOfAttendances +1;
-        attendanceDoctor.totalOfAttendances = attendanceDoctor.totalOfAttendances +1;
+        // attendanceDoctor.totalOfAttendances = attendanceDoctor.totalOfAttendances +1;
+        await newAttendace.incrementTotal();
         newAttendace.total = newAttendace.total +1;
         await attendancePatient.save();
         await attendanceDoctor.save();
         await newAttendace.save();
 
-        res.status(200).json({mensagem: `Atendimento registrado com sucesso para paciente ${attendancePatient.full_name} pelo médico ${attendanceDoctor.full_name}`})
+        res.status(200).json({mensagem: `Atendimento registrado com sucesso para paciente ${attendancePatient.full_name} de ID ${attendancePatient.id}, pelo médico ${attendanceDoctor.full_name} de ID ${attendanceDoctor.id}`})
             
 
     }catch(error){
