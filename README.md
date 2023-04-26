@@ -104,7 +104,7 @@ A modificação do banco de dados deve ser feita através de APIs de requisiçã
 <li>Rota: http://localhost:3333/api/enfermeiros/:id (substitua :id pelo número do ID do enfermeiro)</li></ul></ul><br>
 
 
-<h3>INFORMAÇÕES PARA DESENVOLVEDORES:<h3>
+<h3>INFORMAÇÕES PARA DESENVOLVEDORES:</h3>
 
 O projeto Saúde 360 foi separado em módulos e pastas, seguindo a seguinte organização:
 <ul>
